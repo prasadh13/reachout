@@ -1,5 +1,5 @@
 <section class="row">
-  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4">
+  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-6">
     <form name="vm.userForm" ng-submit="vm.updateUserProfile(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
         <div class="form-group" show-errors>
@@ -14,6 +14,50 @@
           <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.user.lastName" placeholder="Last Name" required>
           <div ng-messages="vm.userForm.lastName.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Last name is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="lastName">Street Address 1</label>
+          <input type="text" id="stAddr1" name="stAddr1" class="form-control" ng-model="vm.user.stAddr1" placeholder="Street Address" required>
+          <div ng-messages="vm.userForm.stAddr1.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Street Address is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="lastName">Street Address 2 (optional)</label>
+          <input type="text" id="stAddr2" name="stAddr2" class="form-control" ng-model="vm.user.stAddr2" placeholder="Apt# or Suite#">
+         <!--  <div ng-messages="vm.userForm.stAddr2.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Street Address is required.</p>
+          </div> -->
+        </div>
+        <div class="form-group" show-errors>
+          <label for="lastName">City</label>
+          <input type="text" id="city" name="city" class="form-control" ng-model="vm.user.city" placeholder="City" required>
+          <div ng-messages="vm.userForm.city.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">City is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="lastName">State</label>
+          <select name="state" class="form-control" ng-model="vm.user.state" placeholder="State" required>
+            <option ng-repeat="state in vm.stateList" value="{{state}}" ng-selected="{{vm.user.state == state}}">{{state}}</option>
+          </select>
+          <div ng-messages="vm.userForm.city.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">State is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="lastName">Zip</label>
+          <input type="text" id="zipCode" minlength="5" maxlength="5" name="zipCode" class="form-control" ng-model="vm.user.zipCode" placeholder="Zip Code" pattern="\d*" required>
+          <div ng-messages="vm.userForm.zipCode.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Zip Code is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="lastName">Phone</label>
+          <input type="test" id="phoneNum" minlength="10" maxlength="10" name="phoneNum" class="form-control" ng-model="vm.user.phoneNum" placeholder="3333333333" pattern="\d*" required>
+          <div ng-messages="vm.userForm.phoneNum.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Phone Number is required and should be 10 digits.</p>
           </div>
         </div>
         <div class="form-group" show-errors>

@@ -99,5 +99,7 @@ exports.changeProfilePicture = function (req, res) {
  * Send User
  */
 exports.me = function (req, res) {
+  console.log("requesting user");
+  console.log(req);
   res.json(req.user || null);
 };

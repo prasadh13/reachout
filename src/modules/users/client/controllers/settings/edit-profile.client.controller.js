@@ -11,6 +11,7 @@
     var vm = this;
 
     vm.user = Authentication.user;
+    console.log(vm.user);
     vm.updateUserProfile = updateUserProfile;
 
     // Update a user profile

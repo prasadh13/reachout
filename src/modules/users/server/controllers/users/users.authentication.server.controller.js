@@ -156,6 +156,12 @@ exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
             user = new User({
               firstName: providerUserProfile.firstName,
               lastName: providerUserProfile.lastName,
+              stAddr1: providerUserProfile.stAddr1,
+              stAddr2: providerUserProfile.stAddr2,
+              city: providerUserProfile.city,
+              state: providerUserProfile.state,
+              zipCode: providerUserProfile.zipCode,
+              phoneNum: providerUserProfile.phoneNum,
               username: availableUsername,
               displayName: providerUserProfile.displayName,
               email: providerUserProfile.email,

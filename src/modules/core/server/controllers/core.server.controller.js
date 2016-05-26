@@ -6,7 +6,6 @@ var validator = require('validator');
  * Render the main application page
  */
 exports.renderIndex = function (req, res) {
-
   var safeUserObject = null;
   if (req.user) {
     safeUserObject = {
@@ -19,6 +18,12 @@ exports.renderIndex = function (req, res) {
       email: validator.escape(req.user.email),
       lastName: validator.escape(req.user.lastName),
       firstName: validator.escape(req.user.firstName),
+      stAddr1: validator.escape(req.user.stAddr1),
+      stAddr2: validator.escape(req.user.stAddr2),
+      city: validator.escape(req.user.city),
+      state: validator.escape(req.user.state),
+      zipCode: req.user.zipCode,
+      phoneNum: req.user.phoneNum,
       additionalProvidersData: req.user.additionalProvidersData
     };
   }
