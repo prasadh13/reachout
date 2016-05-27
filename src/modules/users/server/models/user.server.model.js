@@ -72,6 +72,16 @@ var UserSchema = new Schema({
     type: String,
     default: ''
   },
+  latitude: {
+    type: Number,
+    trim: true,
+    default: ''
+  },
+  longitude: {
+    type: Number,
+    trim: true,
+    default: ''
+  },
   stAddr2: {
     type: String,
     trim: true,

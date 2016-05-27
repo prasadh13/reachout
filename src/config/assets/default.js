@@ -18,7 +18,9 @@ module.exports = {
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.js',
-        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
+        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'http://maps.google.com/maps/api/js?key=AIzaSyBFYPYF1sV_cM-Bb_x-hi9Gpwg9K8WB7nA',
+        'public/lib/ngmap/build/scripts/ng-map.min.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

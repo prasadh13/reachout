@@ -24,6 +24,8 @@ exports.renderIndex = function (req, res) {
       state: validator.escape(req.user.state),
       zipCode: req.user.zipCode,
       phoneNum: req.user.phoneNum,
+      latitude: req.user.latitude,
+      longitude: req.user.longitude,
       additionalProvidersData: req.user.additionalProvidersData
     };
   }

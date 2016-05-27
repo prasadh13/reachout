@@ -30,6 +30,12 @@
           pageTitle: 'Settings'
         }
       })
+      .state('search-locations', {
+        url: '/search',
+        templateUrl: 'modules/users/client/views/searchlocations/search-location.client.view.html',
+        controller: 'HomeController',
+        controllerAs: 'vm'
+      })
       .state('settings.password', {
         url: '/password',
         templateUrl: 'modules/users/client/views/settings/change-password.client.view.html',

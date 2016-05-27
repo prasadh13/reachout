@@ -1,0 +1,27 @@
+<br><br>
+<section>
+	<div class = "row">
+		<div class = "col-xs-3 col-md-3">
+			<div class = "container-fluid jumbotron checkboxes">
+				<div class = "label-filter">
+					<h3>Filters</h3>
+				</div>
+				<br>
+ 				<ul>
+    				<li><input type="checkbox">Foster Care Facilities</li><br>
+    				<li><input type="checkbox">Schools</li><br>
+    				<li><input type="checkbox">Public transport</li>
+  				</ul>
+  				<a class="btn btn-primary btn-lg"ng-click = 'getData()' target="_blank">Apply filters</a></p>
+			</div>	
+		</div>
+		<div class = "col-xs-9 col-md-9">
+			<div ng-show = "vm.authentication.user">
+				<ng-map default-style="false" center="{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}" zoom="12">
+					<marker position = "{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}"></marker>
+    				<marker ng-repeat ="position in locations" position="{{position.latitude}}, {{position.longitude}}"></marker>
+    			</ng-map>
+			</div>
+		</div>
+	</div>
+<section>
