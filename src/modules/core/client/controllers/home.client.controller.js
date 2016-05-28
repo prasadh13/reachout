@@ -18,7 +18,7 @@
       console.log('shapes', map.shapes);
     });*/
     $scope.getData = function() {
-      $http.get('https://chhs.data.ca.gov/resource/mffa-c6z5.json')
+      $http.get('https://chhs.data.ca.gov/resource/mffa-c6z5.json?facility_status=LICENSED')
         .success(function(data, status, headers, config) {
           console.log(data);
           $scope.locations = data;
