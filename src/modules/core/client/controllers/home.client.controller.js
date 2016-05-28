@@ -18,7 +18,7 @@
       console.log('shapes', map.shapes);
     });*/
     $scope.getData = function() {
-      $http.get('https://data.cityofchicago.org/resource/alternative-fuel-locations.json?fuel_type_code=LPG')
+      $http.get('https://chhs.data.ca.gov/resource/mffa-c6z5.json')
         .success(function(data, status, headers, config) {
           console.log(data);
           $scope.locations = data;

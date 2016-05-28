@@ -18,8 +18,8 @@
 		<div class = "col-xs-9 col-md-9">
 			<div ng-show = "vm.authentication.user">
 				<ng-map default-style="false" center="{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}" zoom="12">
-					<marker position = "{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}"></marker>
-    				<marker ng-repeat ="position in locations" position="{{position.latitude}}, {{position.longitude}}"></marker>
+					<marker icon = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png" position = "{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}"></marker>
+    				<marker ng-repeat ="position in locations" position="{{position.location.coordinates[1]}}, {{position.location.coordinates[0]}}"></marker>
     			</ng-map>
 			</div>
 		</div>
