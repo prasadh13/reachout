@@ -1,4 +1,4 @@
-<section>
+<section class = "page-background">
   <div class="page-header">
     <h1>Settings</h1>
   </div>
@@ -24,3 +24,11 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("a").click(function(){
+      console.log("on click")
+        $("body").removeClass("color-background");
+    });
+});
+</script> 

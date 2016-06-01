@@ -6,27 +6,27 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a ui-sref="home" class="navbar-brand">CHHS</a>
+    <!-- <a ui-sref="home" class="navbar-brand">CHHS</a> -->
   </div>
   <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
-    <ul class="nav navbar-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);">
-      <!-- <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
-        <a ng-switch-when="dropdown" class="dropdown-toggle" uib-dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
+    <ul class="navigate nav navbar-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);" ng-show = "vm.authentication.user">
+      <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}} pad" uib-dropdown="item.type === 'dropdown'">
+        <a ng-switch-when="dropdown" class="dropdown-toggle bottom-border" uib-dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
         <ul ng-switch-when="dropdown" class="dropdown-menu">
           <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(vm.authentication.user);">
             <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
           </li>
         </ul>
         <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
-      </li> -->
+      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signup">Sign Up</a>
+        <a id = "log" ui-sref="authentication.signup">Sign Up</a>
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Sign In</a>
+        <a id = "log" ui-sref="authentication.signin">Sign In</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">

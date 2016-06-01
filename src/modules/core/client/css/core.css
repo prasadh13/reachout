@@ -50,3 +50,33 @@ a:hover .header-profile-image {
 .footer, .push {
     height: 142px; /* .push must be the same height as .footer */
 }
+.navigate {
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 16em;
+}
+nav ul li.pad a:hover {
+    color: #D0D0D0;
+    border-bottom: thick solid #e62e00;
+}
+.navbar-nav > .active > a:focus {
+    background-color: white;
+    border-bottom: thick solid #e62e00;
+}
+.pad {
+  padding-right: 2em;
+  font-weight: bold;
+}
+
+.color-background {
+  background-color: #005cad;
+}
+.page-background {
+  background-color: white;
+}
+.text-color-white {
+  color: #FFFAFA;
+}
+.text-color-black {
+  color: black;
+}

@@ -68,29 +68,15 @@
 
         return false;
       }
-      var address = vm.credentials.stAddr1 + ', ' + vm.credentials.city + ', ' + vm.credentials.state;
-      console.log(address);
-      $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address)
-        .success(function(data, status, headers, config) {
-          console.log(data);
-          $scope.locations = data;
-          vm.credentials.latitude = data.results[0].geometry.location.lat;
-          vm.credentials.longitude = data.results[0].geometry.location.lng;
-          console.log(vm.credentials.latitude);
-          console.log(vm.credentials.longitude);
-          $http.post('/api/auth/signin', vm.credentials).success(function (response) {
-            // If successful we assign the response to the global user model
-            vm.authentication.user = response;
-            // ItemsService.saveItem(response, $scope.image);
-            // And redirect to the previous or home page
-            $state.go($state.previous.state.name || 'home', $state.previous.params);
-          }).error(function (response) {
-            vm.error = response.message;
-          });
-        })
-        .error(function(data, status, headers, config) {
-          console.log(data);
-        });
+      $http.post('/api/auth/signin', vm.credentials).success(function (response) {
+        // If successful we assign the response to the global user model
+        vm.authentication.user = response;
+        // ItemsService.saveItem(response, $scope.image);
+        // And redirect to the previous or home page
+        $state.go($state.previous.state.name || 'home', $state.previous.params);
+      }).error(function (response) {
+        vm.error = response.message;
+      });
     }
 
     // OAuth provider request
