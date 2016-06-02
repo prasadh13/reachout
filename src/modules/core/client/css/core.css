@@ -59,7 +59,7 @@ nav ul li.pad a:hover {
     color: #D0D0D0;
     border-bottom: thick solid #e62e00;
 }
-.navbar-nav > .active > a:focus {
+.navbar-nav > .active > a {
     background-color: white;
     border-bottom: thick solid #e62e00;
 }

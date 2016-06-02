@@ -16,7 +16,9 @@
     vm.menu = menuService.getMenu('topbar');
 
     $scope.$on('$stateChangeSuccess', stateChangeSuccess);
-
+    $scope.changeBackground = function() {
+      document.body.style.background = "white";
+    }
     function stateChangeSuccess() {
       // Collapsing the menu after navigation
       vm.isCollapsed = false;
