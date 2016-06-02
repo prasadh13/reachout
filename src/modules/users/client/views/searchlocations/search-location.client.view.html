@@ -8,18 +8,19 @@
 				</div>
 				<br>
  				<ul>
-    				<li class = "text-color-white"><input type="checkbox">Foster Care Facilities</li><br>
-    				<li class = "text-color-white"><input type="checkbox">Schools</li><br>
-    				<li class = "text-color-white"><input type="checkbox">Public transport</li>
+    				<li class = "text-color-white"><input type="checkbox" ng-model = "facilities">Foster Care Facilities</li><br>
+    				<li class = "text-color-white"><input type="checkbox" ng-model = "schools">Schools</li><br>
+    				<li class = "text-color-white"><input type="checkbox" ng-model = "transport">Public transport</li>
   				</ul>
-  				<a class="btn btn-default btn-sm"ng-click = 'getData()' target="_blank">Apply filters</a>
+  				<a class="btn btn-default btn-sm" ng-click = 'getData()'>Apply filters</a>
 			</div>	
 		</div>
 		<div class = "col-xs-9 col-md-9">
 			<div ng-show = "vm.authentication.user">
-				<ng-map default-style="false" center="{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}" zoom="12">
-					<marker icon = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png" position = "{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}"></marker>
-    				<marker ng-repeat ="position in locations" position="{{position.location.coordinates[1]}}, {{position.location.coordinates[0]}}"></marker>
+				<ng-map default-style="false" center="{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}" zoom="11">
+					<marker position = "{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}"></marker>
+					<marker icon = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png" ng-repeat = "place in schoolLocations" position = ""></marker>
+					<marker icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" ng-if = "transportLocations.length" ng-repeat = "place in transportLocations" position = "{{place.geometry.location.lat()}}, {{place.geometry.location.lng()}}"></marker>
     			</ng-map>
 			</div>
 		</div>
