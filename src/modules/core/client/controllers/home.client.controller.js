@@ -74,27 +74,35 @@
         });
       });
     }
+    function getFacilities() {
+      var url = 'https://chhs.data.ca.gov/resource/mffa-c6z5.json?$where=within_circle(location,' + vm.authentication.user.latitude + ',' + vm.authentication.user.longitude + ',' + '16093)&facility_status=LICENSED';
+        $http.get(url)
+        .success(function(data, status, headers, config) {
+          console.log("fetching facilities")
+          $scope.locations = data;
+        })
+        .error(function(data, status, headers, config) {
+          console.log(data);
+        });
+    }
     $scope.getData = function() {
       if ($scope.transport && $scope.schools && $scope.facilities) {
-        var test1;
+        getSchools();
+        getTransport();
+        getFacilities();
       } else if ($scope.transport && $scope.schools && !$scope.facilities) {
         console.log("fetching both");
         getSchools();
         getTransport();
         console.log($scope.locations);
       } else if ($scope.transport && !$scope.schools && $scope.facilities) {
-        var test2;
+        getTransport();
+        getFacilities();
       } else if (!$scope.transport && $scope.schools && $scope.facilities) {
-        var test3;
+        getSchools();
+        getFacilities();
       } else if (!$scope.transport && !$scope.schools && $scope.facilities) {
-        $http.get('https://chhs.data.ca.gov/resource/mffa-c6z5.json?facility_status=LICENSED')
-        .success(function(data, status, headers, config) {
-          console.log(data);
-          $scope.locations = data;
-        })
-        .error(function(data, status, headers, config) {
-          console.log(data);
-        });
+        getFacilities();
       } else if (!$scope.transport && $scope.schools && !$scope.facilities) {
         console.log("fetching schools");
         getSchools();
