@@ -14,6 +14,7 @@
     vm.authentication = Authentication;
     $scope.transportLocations = [];
     $scope.schoolLocations = [];
+    $scope.isError = false;
     var service = null;
     $scope.currentLocation = new google.maps.LatLng(vm.authentication.user.latitude, vm.authentication.user.longitude);
     function getSchools() {
@@ -30,15 +31,9 @@
               $scope.schoolLocations
               .push({
                 lat: results[i].geometry.location.lat(),
-                lng: results[i].geometry.location.lng()
+                lng: results[i].geometry.location.lng(),
+                name: results[i].name
               });
-              /*
-              var marker = new google.maps.Marker({
-                title: results[i].name,
-                map: map,
-                icon: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png',
-                position: results[i].geometry.location
-              });*/
             }
           }
           $scope.$digest();
@@ -48,7 +43,6 @@
     function getTransport() {
       var t_array = [];
       NgMap.getMap().then(function(map) {
-        console.log(map);
         var request = {
           location: $scope.currentLocation,
           radius: '16093 ',
@@ -58,14 +52,11 @@
         service.nearbySearch(request, function(results, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-              var position = {
-                lat: results[i].geometry.location.lat(),
-                lng: results[i].geometry.location.lng()
-              };
               $scope.transportLocations
               .push({
                 lat: results[i].geometry.location.lat(),
-                lng: results[i].geometry.location.lng()
+                lng: results[i].geometry.location.lng(),
+                name: results[i].name
               });
             }
           }
@@ -77,7 +68,6 @@
       var url = 'https://chhs.data.ca.gov/resource/mffa-c6z5.json?$where=within_circle(location,' + vm.authentication.user.latitude + ',' + vm.authentication.user.longitude + ',' + '16093)&facility_status=LICENSED';
       $http.get(url)
       .success(function(data, status, headers, config) {
-        console.log("fetching facilities");
         $scope.locations = data;
       })
       .error(function(data, status, headers, config) {
@@ -85,32 +75,38 @@
       });
     }
     $scope.getData = function() {
-      $scope.locations = [];
-      $scope.transportLocations = [];
-      $scope.schoolLocations = [];
+      $scope.isError = false;
       if ($scope.transport && $scope.schools && $scope.facilities) {
         getSchools();
         getTransport();
         getFacilities();
       } else if ($scope.transport && $scope.schools && !$scope.facilities) {
-        console.log("fetching both");
+        $scope.locations = [];
         getSchools();
         getTransport();
       } else if ($scope.transport && !$scope.schools && $scope.facilities) {
+        $scope.schoolLocations = [];
         getTransport();
         getFacilities();
       } else if (!$scope.transport && $scope.schools && $scope.facilities) {
+        $scope.transportLocations = [];
         getSchools();
         getFacilities();
       } else if (!$scope.transport && !$scope.schools && $scope.facilities) {
+        $scope.transportLocations = [];
+        $scope.schoolLocations = [];
         getFacilities();
       } else if (!$scope.transport && $scope.schools && !$scope.facilities) {
-        console.log("fetching schools");
+        $scope.transportLocations = [];
+        $scope.locations = [];
         getSchools();
       } else if ($scope.transport && !$scope.schools && !$scope.facilities) {
-        console.log("fetching transport");
+        $scope.schoolLocations = [];
+        $scope.locations = [];
         getTransport();
-
+      } else if (!$scope.transport && !$scope.schools && !$scope.facilities) {
+        $scope.isError = true;
+        $scope.filterMessage = "Please choose a filter";
       }
     };
   }
