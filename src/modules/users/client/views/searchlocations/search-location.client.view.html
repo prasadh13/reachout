@@ -19,9 +19,16 @@
 			<div ng-show = "vm.authentication.user">
 				<ng-map default-style="false" center="{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}" zoom="11">
 					<marker position = "{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}"></marker>
-					<marker icon = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png" ng-repeat = "place in schoolLocations" position = ""></marker>
+					<marker icon = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png" ng-repeat = "place in schoolLocations" position = "{{place.lat}}, {{place.lng}}"></marker>
+					<marker icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" ng-repeat = "place in transportLocations" position = "{{place.lat}}, {{place.lng}}"></marker>
 					<marker icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png" ng-if = "locations.length" ng-repeat = "place in locations" position = "{{place.location.coordinates[1]}}, {{place.location.coordinates[0]}}"></marker>
     			</ng-map>
+			</div>
+		</div>
+	</div>
+	<div class = "row">
+		<div class = "col-xs-9 col-md-9">
+			<div id = "map" ng-show = "vm.authentication.user" ng-hide="true">
 			</div>
 		</div>
 	</div>
