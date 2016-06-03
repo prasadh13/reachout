@@ -56,7 +56,7 @@
         <br><br>
         <div class="form-group" show-errors>
           <label for="lastName" class = "text-color-white">Phone</label>
-          <input type="test" id="phoneNum" minlength="10" maxlength="10" name="phoneNum" class="form-control" ng-model="vm.credentials.phoneNum" placeholder="3333333333" pattern="\d*" required>
+          <input type="test" id="phoneNum" minlength="10" maxlength="10" name="phoneNum" class="form-control" ng-model="vm.credentials.phoneNum" placeholder="3333333333" pattern="\d*">
           <div ng-messages="vm.userForm.phoneNum.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Phone Number is required and should be 10 digits.</p>
 
