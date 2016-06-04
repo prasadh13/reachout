@@ -103,13 +103,12 @@ var UserSchema = new Schema({
     type: Number,
     trim: true,
     default: '',
-    validate: [validateLocalStrategyProperty, 'Please select a city`']
+    validate: [validateLocalStrategyProperty, 'Please fill in the zipcode`']
   },
   phoneNum: {
     type: Number,
     trim: true,
-    default: '',
-    validate: [validateLocalStrategyProperty, 'Please select a city`']
+    default: ''
   },
   password: {
     type: String,

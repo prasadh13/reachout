@@ -80,3 +80,8 @@ nav ul li.pad a:hover {
 .text-color-black {
   color: black;
 }
+.div-display {
+  background-color: #eee;
+  border-radius: 6px;
+  padding-bottom: 1em;
+}

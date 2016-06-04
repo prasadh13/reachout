@@ -14,6 +14,7 @@
       emit: emit,
       on: on,
       removeListener: removeListener,
+      broadcast: broadcast,
       socket: null
     };
 
@@ -33,6 +34,13 @@
     function emit(eventName, data) {
       if (service.socket) {
         service.socket.emit(eventName, data);
+      }
+    }
+
+    // Wrap the Socket.io 'emit' method
+    function broadcast(eventName, data) {
+      if (service.socket) {
+        service.socket.broadcast.emit(eventName, data);
       }
     }
 
