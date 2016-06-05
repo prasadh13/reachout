@@ -99,7 +99,22 @@ exports.changeProfilePicture = function (req, res) {
  * Send User
  */
 exports.me = function (req, res) {
-  console.log("requesting user");
-  console.log(req);
   res.json(req.user || null);
+};
+
+/**
+ * List of Users
+ */
+exports.list = function (req, res) {
+  User.find().select('profileImageURL username created').sort('-created').select(-'').exec(function (err, users) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      console.log("List of all users");
+      console.log(users);
+      res.json(users);
+    }
+  });
 };

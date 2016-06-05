@@ -1,0 +1,47 @@
+<!-- The chat view -->
+<section class="container">
+  <div class="page-header">
+    <h1>Chat</h1>
+  </div>
+  <!-- Show user status -->
+  <div class = "row">
+    <div class="col-xs-6 col-md-4 div-display">
+      <div class=" chat-message" ng-repeat = "(key,value) in vm.users">
+        <small class="pull-right text-muted"><i style = "color: #00ff33" class="fa fa-circle fa-lg"></i></small>
+        <a type="button" style = "margin-right:1em" class="btn btn-info btn-xs pull-right" ng-hide = "key == vm.authentication.user.username" ng-click = "vm.chat(key)">Chat</a>
+        <img ng-src="{{value.profileImageURL}}" alt="{{key}}" class="pull-left chat-profile-image" />
+        <div class="pull-left chat-message-details">
+          <strong ng-bind="key"></strong>
+        </div>
+        <br>
+      </div>
+    </div>
+    <!-- The message form -->
+    <div class="col-xs-6 col-md-push-1 col-md-6 div-display" style="height: 34em;" ng-show = "vm.chatWindow || vm.messages.length >= 1">
+    <div style="height: 30em; overflow-y:auto;">
+      <ul class="list-unstyled">
+      <!-- List all messages -->
+        <li class="col-xs-12 col-md-12 chat-message" style = "display:inline;" ng-repeat="message in vm.messages">
+          <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
+          <img ng-src="{{message.profileImageURL}}" alt="{{message.username}}" class="pull-left chat-profile-image" />
+          <div class="pull-left chat-message-details">
+            <strong ng-bind="message.username"></strong>
+            <br>
+            <span ng-bind="message.text"></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <form style="padding-left: 2.5em; padding-right:2.5em; padding-bottom:1em; position: absolute; right: 0; bottom: 0;" ng-submit="vm.sendMessage();" ng-show = "vm.chatWindow || vm.messages.length >= 1">
+        <fieldset class="row">
+          <div class="input-group">
+            <input type="text" id="messageText" name="messageText" class="form-control" ng-model="vm.messageText" placeholder="Enter new message">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary" ng-disabled="!vm.messageText.length">Send</button>
+            </span>
+          </div>
+        </fieldset>
+      </form>
+    <div>
+  </div>
+</section>

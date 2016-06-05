@@ -17,8 +17,7 @@ var ConversationSchema = new Schema({
   caseId: {
     type: String,
     default: '',
-    trim: true,
-    required: 'Case ID cannot be blank'
+    trim: true
   },
   participants: {
     type: [{ type: Schema.ObjectId, ref: 'User' }],
@@ -37,9 +36,10 @@ var MessageSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  sender: {
-    type: Schema.ObjectId,
-    ref: 'User'
+  sender: {},
+  receiver: {
+    type: String,
+    default: null
   },
   content: {
     type: String,

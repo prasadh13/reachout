@@ -33,3 +33,17 @@
     });
   }
 }());
+
+angular
+    .module('users.services')
+    .factory('ListUsersService', ListUsersService);
+
+ListUsersService.$inject = ['$resource'];
+
+function ListUsersService($resource) {
+  return $resource('api/users/all', {}, {
+    list: {
+      method: 'GET'
+    }
+  });
+}

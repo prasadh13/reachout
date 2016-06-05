@@ -2,6 +2,10 @@
   margin-top: 10px;
   padding-top: 10px;
 }
+.chat-message-pic {
+  margin-top: 10px;
+  padding: 8px;
+}
 .chat-message:not(:first-child) {
   border-top: 1px solid #e7e7e7;
 }
@@ -13,3 +17,7 @@
   width: 28px;
   border-radius: 50%;
 }
+.pic-display { position:relative; width: 100px; height: 100px; float: left; background-color: #005cad; }
+.pic-checkbox { position: absolute; bottom: 0px; right: 0px; }
+.pic { width: 100px; height: 100px; }
+.marginbottum{min-height: 5em;}

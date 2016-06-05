@@ -5,20 +5,25 @@
     .module('chat')
     .controller('ChatController', ChatController);
 
-  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket', '$timeout'];
+  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket', '$timeout', 'ListUsersService', '$http'];
 
-  function ChatController($scope, $state, Authentication, Socket, $timeout) {
+  function ChatController($scope, $state, Authentication, Socket, $timeout, ListUsersService, $http) {
     var vm = this;
     vm.messages = [];
     vm.users = [];
     vm.messageText = '';
     vm.sendMessage = sendMessage;
     vm.authentication = Authentication;
+    vm.getAllUsers = getAllUsers;
     vm.chat = chat;
     vm.to = null;
+    vm.selectedUsers = {};
     vm.chatWindow = false;
+    vm.welcomeText = null;
+    vm.archiveMessages = archiveMessages;
+    vm.historyMessages = [];
     init();
-
+    archiveMessages();
     function init() {
       // If user is not signed in then redirect back home
       if (!Authentication.user) {
@@ -36,21 +41,24 @@
         username: Authentication.user.username,
         online: true
       };
+      /*
       $timeout(function() {
         Socket.emit('newUser', userinfo);
       }, 2000);
-      Socket.on('adduser', function(response) {
-        vm.users = response;
-      });
+      */
       // Event listner for user's online status
       // Add an event listener to the 'chatMessage' event
+      Socket.on('adduser', function(response) {
+        vm.welcomeText = response;
+        $scope.$apply();
+      });
       Socket.on('chatMessage', function (message) {
         vm.messages.unshift(message);
         vm.to = message.username;
         $scope.$apply();
       });
-      Socket.on('showSelf', function (message) {
-        vm.messages.unshift(message);
+      Socket.on('offline', function (response) {
+        vm.welcomeText = response;
         $scope.$apply();
       });
       Socket.on('onlineUsers', function (user) {
@@ -65,9 +73,30 @@
         }, 2000);
       });
     }
+    function archiveMessages() {
+      $http.get('/api/chat/all', vm.credentials).success(function (response) {
+        // If successful we assign the response to the global user model
+        vm.historyMessages = response;
+      }).error(function (response) {
+        vm.error = response.message;
+      });
+    }
     function chat(to) {
+      vm.selectedUsers = {};
+      for (var i = 0; i < vm.users.length; i++) {
+        if (vm.users[i].selected === true) {
+          vm.selectedUsers[vm.users[i].username] = vm.users[i];
+        } else if (vm.users[i].username === vm.authentication.user.username) {
+          vm.selectedUsers[vm.users[i].username] = vm.users[i];
+        }
+      }
       vm.chatWindow = true;
       vm.to = to;
+      Socket.emit('newUser', vm.selectedUsers);
+    }
+    function getAllUsers() {
+      vm.users = ListUsersService.query();
+      console.log(vm.users);
     }
     // Create a controller method for sending messages
     function sendMessage() {
