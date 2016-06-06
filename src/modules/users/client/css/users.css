@@ -48,3 +48,6 @@ ng-map {
   text-align: center;
   margin-top:-3em;
 }
+.img-thumbnail {
+  border: 1px solid #005cad;
+}

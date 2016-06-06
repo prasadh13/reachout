@@ -13,8 +13,8 @@
 }
 .header-profile-image {
   opacity: 0.8;
-  height: 28px;
-  width: 28px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   margin-right: 5px;
 }
@@ -96,6 +96,13 @@ a:hover .header-profile-image {
 .nav li.header-menu a:hover {
     border: 2px solid #661a00;
     background-color: #404040;
+}
+.navbar-default .navbar-nav > .open > a {
+  background-color: #005cad;
+  background-image: none;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover {
+  background-color: #005cad;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     border: 2px solid #661a00;
