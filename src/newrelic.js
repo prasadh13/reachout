@@ -466,7 +466,7 @@ exports.config = {
          *
          * @env NEW_RELIC_PROCESS_HOST_DISPLAY_NAME
          */
-        display_name: '',
+        display_name: 'AWS NGINX Server',
         /**
          * ip address preference when creating hostnames
          *
