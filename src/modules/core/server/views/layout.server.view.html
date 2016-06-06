@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   <base href="/">
-  <title page-title></title>
+  <title page-title>{{title}}</title>
   <meta name="description" content="{{description}}">
   <meta name="fragment" content="!">
 
@@ -32,6 +32,16 @@
 
   <!-- Application CSS Files -->
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-78711590-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </head>
 
 <body class="ng-cloak color-background">
@@ -39,7 +49,7 @@
   <section class="content">
     <section class="container">
       {% block content %}{% endblock %}
-    </section> 
+    </section>
   </section>
   <!-- <footer ng-include="'/modules/core/client/views/footer.client.view.html'" class="footer"></footer> -->
   <!--Embedding The User Object-->
@@ -50,7 +60,7 @@
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <!--Application JavaScript Files-->
   {% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
-  
+
 
   {% if livereload %}
   <!--Livereload script rendered -->
