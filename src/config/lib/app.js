@@ -15,7 +15,7 @@ function seedDB() {
     seed.start();
   }
 }
-
+require('newrelic');
 // Initialize Models
 mongoose.loadModels(seedDB);
 
