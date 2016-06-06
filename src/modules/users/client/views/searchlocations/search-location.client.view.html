@@ -12,7 +12,7 @@
  				<ul>
     				<li class = "text-color-white"><input type="checkbox" ng-model = "facilities">Foster Care Facilities</li><br>
     				<li class = "text-color-white"><input type="checkbox" ng-model = "schools">Schools</li><br>
-    				<li class = "text-color-white"><input type="checkbox" ng-model = "transport">Public transport</li>
+    				<!-- <li class = "text-color-white"><input type="checkbox" ng-model = "transport">Public transport</li> -->
   				</ul>
   				<a class="btn btn-default btn-sm" ng-click = 'getData()'>Apply filters</a>
   				<br><br>
@@ -27,7 +27,15 @@
 					<marker position = "{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}" title = "{{vm.authentication.user.stAddr2}} {{vm.authentication.user.stAddr1}}"></marker>
 					<marker icon = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png" ng-repeat = "place in schoolLocations" title="{{place.name}}" position = "{{place.lat}}, {{place.lng}}"></marker>
 					<marker icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" ng-repeat = "place in transportLocations" title="{{place.name}}" position = "{{place.lat}}, {{place.lng}}"></marker>
-					<marker icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png" ng-if = "locations.length" ng-repeat = "place in locations" title = "{{place.facility_name}}" position = "{{place.location.coordinates[1]}}, {{place.location.coordinates[0]}}"></marker>
+					<marker id = "{{place.facility_number}}" icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png" ng-if = "locations.length" ng-repeat = "place in locations" title = "{{place.facility_name}}" position = "{{place.location.coordinates[1]}}, {{place.location.coordinates[0]}}" on-click = "showDetails(place)"></marker>
+					<info-window id ="facilitiesInfo">
+						<div ng-non-bindable="">
+					        {{vm.place.facility_name}}<br/>
+					        {{vm.place.facility_address}}<br/>
+					        {{vm.place.facility_city}}, {{vm.place.facility_state}} {{vm.place.facility_zip}}<br/>
+					        {{vm.place.facility_telephone_number}}
+						</div> 
+        			</info-window>
     			</ng-map>
 			</div>
 		</div>

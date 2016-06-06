@@ -11,12 +11,18 @@
 
   function HomeController($scope, $state, Authentication, $http, NgMap) {
     var vm = this;
+    vm.map = null;
     vm.authentication = Authentication;
     $scope.transportLocations = [];
     $scope.schoolLocations = [];
     $scope.isError = false;
     var service = null;
+    $scope.map = null;
     $scope.currentLocation = new google.maps.LatLng(vm.authentication.user.latitude, vm.authentication.user.longitude);
+    $scope.showDetails = function(e, place) {
+      vm.place = place;
+      $scope.map.showInfoWindow('facilitiesInfo', place.facility_number);
+    };
     function getSchools() {
       var request = {
         location: $scope.currentLocation,
@@ -24,6 +30,7 @@
         types: ['school']
       };
       NgMap.getMap().then(function(map) {
+        $scope.map = map;
         service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, function(results, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
