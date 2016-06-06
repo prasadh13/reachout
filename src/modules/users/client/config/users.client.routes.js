@@ -34,7 +34,10 @@
         url: '/search',
         templateUrl: 'modules/users/client/views/searchlocations/search-location.client.view.html',
         controller: 'HomeController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        data: {
+          roles: ['user', 'admin']
+        }
       })
       .state('settings.password', {
         url: '/password',

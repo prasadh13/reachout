@@ -33,6 +33,12 @@
         controller: 'HomeController',
         controllerAs: 'vm'
       })
+      .state('about', {
+        url: '/about',
+        templateUrl: 'modules/core/client/views/about.client.view.html',
+        controller: 'HomeController',
+        controllerAs: 'vm'
+      })
       .state('profile-options', {
         url: '/profile',
         templateUrl: 'modules/core/client/views/profile-options.client.view.html',

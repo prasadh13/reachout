@@ -1,3 +1,6 @@
+body {
+  background-color: #005cad;
+}
 .content {
   margin-top: 50px;
 }
@@ -56,6 +59,10 @@ a:hover .header-profile-image {
     padding-left: 16em;
 }
 .pad {
+  padding-right: 2em;
+  font-weight: bold;
+}
+.pad2 {
   padding-right: 2em;
   font-weight: bold;
 }
