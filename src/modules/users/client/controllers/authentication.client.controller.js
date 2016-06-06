@@ -46,14 +46,24 @@
         return false;
       }
       console.log(vm.credentials);
-      $http.post('/api/auth/signup', vm.credentials).success(function (response) {
-        // If successful we assign the response to the global user model
-        vm.authentication.user = response;
+      var address = vm.credentials.stAddr1 + ', ' + vm.credentials.city + ', ' + vm.credentials.state;
+      $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address)
+      .success(function(data, status, headers, config) {
+        $scope.locations = data;
+        vm.credentials.latitude = data.results[0].geometry.location.lat;
+        vm.credentials.longitude = data.results[0].geometry.location.lng;
+        $http.post('/api/auth/signup', vm.credentials).success(function (response) {
+          // If successful we assign the response to the global user model
+          vm.authentication.user = response;
 
-        // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
-      }).error(function (response) {
-        vm.error = response.message;
+          // And redirect to the previous or home page
+          $state.go($state.previous.state.name || 'home', $state.previous.params);
+        }).error(function (response) {
+          vm.error = response.message;
+        });
+      })
+      .error(function(data, status, headers, config) {
+        console.log("Error in signup :(");
       });
     }
     function uploadImage(e) {
