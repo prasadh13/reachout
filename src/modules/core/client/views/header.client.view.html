@@ -13,14 +13,14 @@
       <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}} pad" uib-dropdown="item.type === 'dropdown'">
         <a ng-switch-default ui-sref="{{item.state}}" ng-click = "changeBackground()" ng-bind="item.title"></a>
       </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
-      <li ui-sref-active="active">
-        <a id = "log" ui-sref="authentication.signup">Sign Up</a>
+    </ul><br>
+    <ul class="nav navbar-nav" ng-hide="vm.authentication.user">
+      <li ui-sref-active="active" class = "header-menu">
+        <a id = "log" ui-sref="authentication.signup" class = "btn butt" style = "color:white; margin-right: 5em; font-size: 1.2em">Signup</a>
       </li>
       <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
-        <a id = "log" ui-sref="authentication.signin">Sign In</a>
+      <li ui-sref-active="active" class = "header-menu">
+        <a id = "log" ui-sref="authentication.signin" class = "btn butt menu-btns" style = "color:white; margin-right: 5em; font-size: 1.2em">Signin</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">

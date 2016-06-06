@@ -1,16 +1,19 @@
 <section ng-controller="HomeController as vm" class = "color-background">
   <div class="jumbotron text-center color-background">
-    <br>
+    <br><br><br><br><br><br><br>
     <div class="row">
       <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
         <img alt="Reachout" class="img-responsive" src="modules/core/client/img/brand/reachoutlogo.png" />
       </div>
     </div>
-    <!-- <div class="row">
-      <p>
-        <a class="btn btn-primary btn-lg" href="http://meanjs.org" target="_blank">Learn more</a>
-      </p>
-    </div> -->
+    <br><br><br><br>
+    <div class="row" ng-controller="HeaderController as vm">
+      <ul class="navigate nav navbar-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);">
+      <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}} pad header-menu" uib-dropdown="item.type === 'dropdown'">
+        <a ng-switch-default ui-sref="{{item.state}}" ng-click = "changeBackground()" ng-bind="item.title" class = "butt" style = "color:white; margin-right: 3em; font-size: 1.2em"></a>
+      </li>
+    </ul><br>
+    </div>
   </div>
   <!-- <div>
     <h2>Welcome to CHHS</h2>

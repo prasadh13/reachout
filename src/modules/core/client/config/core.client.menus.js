@@ -31,11 +31,6 @@
       state: 'settings.profile',
       roles: ['*']
     });
-    menuService.addMenuItem('topbar', {
-      title: 'CONTACT',
-      state: 'contact',
-      roles: ['*']
-    });
     menuService.addMenuItem('account', {
       title: '',
       state: 'settings',
