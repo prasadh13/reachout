@@ -3,6 +3,7 @@
 /**
  * Module dependencies.
  */
+require('newrelic');
 var config = require('../config'),
   mongoose = require('./mongoose'),
   express = require('./express'),
@@ -15,7 +16,7 @@ function seedDB() {
     seed.start();
   }
 }
-require('newrelic');
+
 // Initialize Models
 mongoose.loadModels(seedDB);
 
