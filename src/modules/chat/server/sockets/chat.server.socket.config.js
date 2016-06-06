@@ -6,7 +6,6 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
-  Conversation = mongoose.model('Conversation'),
   Message = mongoose.model('Message'),
   User = mongoose.model('User'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
@@ -15,6 +14,7 @@ var sessionUsers = {};
 // Create the chat configuration
 module.exports = function (io, socket, req, res) {
   connectedUsers[socket.request.user.username] = socket;
+  console.log(Object.keys(connectedUsers));
   socket.on('newUser', function(data) {
     sessionUsers = data;
     connectedUsers[socket.request.user.username].emit('adduser', { text: "You started a discussion" });
@@ -25,7 +25,7 @@ module.exports = function (io, socket, req, res) {
   socket.on('chatMessage', function(data) {
     var message = null;
     var msgOrigin = null;
-    console.log(sessionUsers);
+    var caseId = '1234';
     for (var participant in sessionUsers) {
       if (participant in connectedUsers) {
         msgOrigin = {
@@ -42,14 +42,15 @@ module.exports = function (io, socket, req, res) {
         message = new Message({
           sender: msgOrigin,
           receiver: participant,
-          content: data.text
+          content: data.text,
+          casenumber: caseId
         });
+        connectedUsers[participant].emit('chatMessage', msg);
         message.save(function (err) {
           if (err) {
             console.log("message could not be saved :(");
           } else {
             console.log("message saved!");
-            connectedUsers[participant].emit('chatMessage', msg);
           }
         });
         /*
@@ -64,13 +65,14 @@ module.exports = function (io, socket, req, res) {
         message = new Message({
           sender: msgOrigin,
           receiver: participant,
-          content: data.text
+          content: data.text,
+          casenumber: caseId
         });
         message.save(function (err) {
           if (err) {
             console.log("message could not be saved :(");
           } else {
-            connectedUsers[socket.request.user.username].emit('offline', { text: '<strong>' + participant + '</strong>' + ' is currently offline' });
+            connectedUsers[socket.request.user.username].emit('offline', { text: participant + ' is currently offline' });
           }
         });
       }

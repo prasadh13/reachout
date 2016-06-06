@@ -1,0 +1,3 @@
+db.conversations.insert({caseId: "1234", caseworker: ObjectId("574772736c9da9530e31e446"), participants: [ObjectId("57531b0edc5c03d70bba5ebd"), ObjectId("574643e743cd1aa110b2322b")]});
+
+db.users.update({_id:ObjectId("574772736c9da9530e31e446")}, {$set: {casenumber: "1234", caseworker: true}});

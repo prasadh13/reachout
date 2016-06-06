@@ -9,6 +9,7 @@ var mongoose = require('mongoose'),
 /**
  * Conversation Schema
  */
+/*
 var ConversationSchema = new Schema({
   created: {
     type: Date,
@@ -19,13 +20,17 @@ var ConversationSchema = new Schema({
     default: '',
     trim: true
   },
+  caseworker: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  },
   participants: {
     type: [{ type: Schema.ObjectId, ref: 'User' }],
     default: []
   }
 });
 
-mongoose.model('Conversation', ConversationSchema);
+mongoose.model('Conversation', ConversationSchema);*/
 
 /**
 * Message Schema
@@ -37,18 +42,12 @@ var MessageSchema = new Schema({
     default: Date.now
   },
   sender: {},
-  receiver: {
-    type: String,
-    default: null
-  },
+  receiver: {},
+  casenumber: {},
   content: {
     type: String,
     default: '',
     trim: true
-  },
-  conversationId: {
-    type: Schema.ObjectId,
-    ref: 'Conversation'
   }
 });
 

@@ -12,19 +12,16 @@ var path = require('path'),
  * List of Messages
  */
 exports.getByUsername = function (req, res) {
-  console.log(req.user.username);
-  Message.find({ receiver: req.user.username }).sort('-created').exec(function (err, archiveMessages) {
+  Message.find({ $and: [{ $or: [{ receiver: req.user.username }, { sender: req.user.username }] }, { 'casenumber': '1234' }] }).sort('-created').exec(function (err, archiveMessages) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      console.log(archiveMessages);
       res.json(archiveMessages);
     }
   });
 };
-
 /**
  * Chat middleware
  */

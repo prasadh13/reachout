@@ -7,7 +7,8 @@ module.exports = {
         // bower:css
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-        'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
+        'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.core.min.css'
         // endbower
       ],
       js: [
@@ -18,6 +19,7 @@ module.exports = {
         'public/lib/angular-messages/angular-messages.js',
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.min.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'http://maps.google.com/maps/api/js?key=AIzaSyBFYPYF1sV_cM-Bb_x-hi9Gpwg9K8WB7nA&libraries=places',

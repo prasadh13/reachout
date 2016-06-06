@@ -1,3 +1,4 @@
+/* eslint no-undef: 0 */
 (function () {
   'use strict';
 
@@ -20,8 +21,11 @@
     vm.selectedUsers = {};
     vm.chatWindow = false;
     vm.welcomeText = null;
+    vm.error = null;
     vm.archiveMessages = archiveMessages;
     vm.historyMessages = [];
+    vm.casenumber = 1234;
+
     init();
     archiveMessages();
     function init() {
@@ -90,13 +94,16 @@
           vm.selectedUsers[vm.users[i].username] = vm.users[i];
         }
       }
-      vm.chatWindow = true;
-      vm.to = to;
-      Socket.emit('newUser', vm.selectedUsers);
+      if ((Object.keys(vm.selectedUsers).length - 1) === 0) {
+        vm.error = "No participant selected.";
+      } else {
+        vm.chatWindow = true;
+        vm.to = to;
+        Socket.emit('newUser', vm.selectedUsers);
+      }
     }
     function getAllUsers() {
       vm.users = ListUsersService.query();
-      console.log(vm.users);
     }
     // Create a controller method for sending messages
     function sendMessage() {

@@ -68,10 +68,6 @@ var UserSchema = new Schema({
     default: '',
     validate: [validateLocalStrategyProperty, 'Please fill in your street address']
   },
-  image: {
-    type: String,
-    default: ''
-  },
   latitude: {
     type: Number,
     trim: true,
@@ -86,6 +82,14 @@ var UserSchema = new Schema({
     type: String,
     trim: true,
     default: ''
+  },
+  casenumber: {
+    type: String,
+    trim: true,
+    default: null
+  },
+  caseworker: {
+    type: Boolean
   },
   city: {
     type: String,

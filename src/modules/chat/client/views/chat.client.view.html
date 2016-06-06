@@ -5,26 +5,29 @@
   </div>
   <!-- Show user status -->
   <div class = "row">
-    <div class="col-xs-6 col-md-4 div-display" ng-init = "vm.getAllUsers()">
+    <div class="col-xs-6 col-md-4 div-display" style="min-height:28em;" ng-init = "vm.getAllUsers()">
       <h3 style="text-align: center; border-bottom: solid thin #C8C8C8 ">Select Participants</h3>
       <div class="col-xs-4 chat-message-pic" ng-repeat = "user in vm.users">
         <div class="pic-display">
-          <img src="{{user.profileImageURL}}" alt = "{{user.username}}" class = "pic" /> 
+          <img src="{{user.profileImageURL}}" alt = "{{user.username}}" class = "pic" />
+          <i ng-if="user.caseworker == true" class="fa fa-star fa-lg pic-role"></i> 
           <input ng-if= "user.username !== vm.authentication.user.username" type="checkbox" class="pic-checkbox" id="{{user.username}}" ng-model ="user.selected" value = "{{user.username}}" />
           <strong>{{user.username}}</strong>
         </div>
       </div>
-      <div style="text-align: center; position: absolute; right: 0; bottom:0;">
+      <div style="position: absolute; bottom:0; margin-bottom: 1em; margin-left:30%">
         <button type = "button" class = "btn btn-primary" ng-click = "vm.chat()">Start Discussion</button>
       </div>
     </div>
+    <uib-alert type="danger" ng-show="vm.error" class="text-center text-danger">
+      <span ng-bind="vm.error"></span>
+    </uib-alert>
     <!-- The message form -->
     <div class="col-xs-6 col-md-push-1 col-md-6 div-display" style="height: 34em;" ng-show = "vm.chatWindow || vm.messages.length >= 1 || vm.historyMessages.length">
     <div style="height: 30em; overflow-y:auto;">
-      <span ng-bind="vm.welcomeText.text"></span>
       <ul class="list-unstyled">
       <!-- List all messages -->
-        <li class="col-xs-12 col-md-12 chat-message" style = "display:inline;" ng-repeat="message in vm.historyMessages ">
+        <li ng-if = "vm.historyMessages.length"class="col-xs-12 col-md-12 chat-message" style = "display:inline;" ng-repeat="message in vm.historyMessages ">
           <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
           <img ng-src="{{message.sender.profileImageUrl}}" alt="{{message.sender.username}}" class="pull-left chat-profile-image" />
           <div class="pull-left chat-message-details">
@@ -34,7 +37,8 @@
           </div>
         </li>
         <br>
-        <strong class = "text-muted" style = "font-style:italic; text-align: center; margin-left: 40%">---- end of history ----</strong>
+        <strong ng-if="vm.historyMessages.length" class = "text-muted" style = "font-style:italic; text-align: center; margin-left: 40%">---- end of history ----</strong><br>
+        <span style = "font-style:italic; text-align: center; margin-left: 40%" ng-bind="vm.welcomeText.text"></span>
         <li class="col-xs-12 col-md-12 chat-message" style = "display:inline;" ng-repeat="message in vm.messages">
           <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
           <img ng-src="{{message.profileImageURL}}" alt="{{message.username}}" class="pull-left chat-profile-image" />
