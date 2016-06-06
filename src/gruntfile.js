@@ -284,7 +284,7 @@ module.exports = function (grunt) {
       done();
     });
   });
-
+  grunt.option('force', true);
   // Lint CSS and JavaScript files.
   grunt.registerTask('lint', ['sass', 'less', 'eslint', 'csslint']);
 
