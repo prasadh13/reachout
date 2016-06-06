@@ -10,15 +10,10 @@
 				</div>
 				<br>
  				<ul>
-    				<li class = "text-color-white"><input type="checkbox" ng-model = "facilities">Foster Care Facilities</li><br>
-    				<li class = "text-color-white"><input type="checkbox" ng-model = "schools">Schools</li><br>
+    				<li class = "text-color-white"><input type="checkbox" ng-model = "facilities" ng-change = "getData()">Foster Care Facilities</li><br>
+    				<li class = "text-color-white"><input type="checkbox" ng-model = "schools" ng-change = "getData()">Schools</li><br>
     				<!-- <li class = "text-color-white"><input type="checkbox" ng-model = "transport">Public transport</li> -->
   				</ul>
-  				<a class="btn btn-default btn-sm" ng-click = 'getData()'>Apply filters</a>
-  				<br><br>
-  				<uib-alert style="margin-left: -1.3em" type="danger" ng-show="isError" class="text-center text-danger">
-          			<strong style="font-size: 0.8em" ng-bind="filterMessage"></strong>
-        		</uib-alert>
 			</div>	
 		</div>
 		<div class = "col-xs-9 col-md-9">

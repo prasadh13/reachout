@@ -82,15 +82,10 @@
       });
     }
     $scope.getData = function() {
-      $scope.isError = false;
       if ($scope.transport && $scope.schools && $scope.facilities) {
         getSchools();
         getTransport();
         getFacilities();
-      } else if ($scope.transport && $scope.schools && !$scope.facilities) {
-        $scope.locations = [];
-        getSchools();
-        getTransport();
       } else if ($scope.transport && !$scope.schools && $scope.facilities) {
         $scope.schoolLocations = [];
         getTransport();
@@ -107,13 +102,9 @@
         $scope.transportLocations = [];
         $scope.locations = [];
         getSchools();
-      } else if ($scope.transport && !$scope.schools && !$scope.facilities) {
+      } else if (!$scope.schools && !$scope.facilities) {
         $scope.schoolLocations = [];
         $scope.locations = [];
-        getTransport();
-      } else if (!$scope.transport && !$scope.schools && !$scope.facilities) {
-        $scope.isError = true;
-        $scope.filterMessage = "Please choose a filter";
       }
     };
   }
