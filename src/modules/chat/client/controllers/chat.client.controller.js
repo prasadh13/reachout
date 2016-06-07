@@ -26,7 +26,7 @@
     vm.historyMessages = [];
     vm.casenumber = "1234";
     archiveMessages();
-
+    $scope.notifs = {};
     init();
 
     function init() {
@@ -56,7 +56,8 @@
       });
       Socket.on('chatMessage', function (message) {
         vm.messages.unshift(message);
-        vm.to = message.username;
+        console.log(message);
+        $scope.notifs[message.username] = ($scope.notifs[message.username] || 0) + 1;
         $scope.$apply();
       });
       Socket.on('offline', function (response) {

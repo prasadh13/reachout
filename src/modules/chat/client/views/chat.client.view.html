@@ -13,6 +13,10 @@
           <i ng-if="user.caseworker == true" class="fa fa-star fa-lg pic-role"></i> 
           <input ng-if= "user.username !== vm.authentication.user.username" type="checkbox" class="pic-checkbox" id="{{user.username}}" ng-model ="user.selected" value = "{{user.username}}" />
           <strong>{{user.username}}</strong>
+          <span class="fa-stack fa-lg" style = "margin-left:-0.5em" ng-if = "notifs[user.username] > 0">
+            <i class="fa fa-circle fa-stack-1x" style = "color:red"></i>
+            <span class="fa-stack-1x fa-stack-text fa-inverse" style = "font-size: 0.6em">{{notifs[user.username]}}</span>
+          </span>
         </div>
       </div>
       <div style="position: absolute; bottom:0; margin-bottom: 1em; margin-left:30%">
@@ -27,7 +31,7 @@
     <div style="height: 30em; overflow-y:auto;">
       <ul class="list-unstyled">
       <!-- List all messages -->
-        <li ng-if = "vm.historyMessages.length"class="col-xs-12 col-md-12 chat-message" style = "display:inline;" ng-repeat="message in vm.historyMessages ">
+        <li ng-if = "vm.historyMessages.length"class="col-xs-12 col-md-12 chat-message" style = "display:inline;" ng-repeat="message in vm.historyMessages" ng-hide = "vm.messages.length">
           <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
           <img ng-src="{{message.sender.profileImageUrl}}" alt="{{message.sender.username}}" class="pull-left chat-profile-image" />
           <div class="pull-left chat-message-details">
@@ -37,7 +41,7 @@
           </div>
         </li>
         <br>
-        <strong ng-if="vm.historyMessages.length" class = "text-muted" style = "font-style:italic; text-align: center; margin-left: 40%">---- end of history ----</strong><br>
+        <strong ng-if="vm.historyMessages.length" class = "text-muted" style = "font-style:italic; text-align: center; margin-left: 40%" ng-hide = "vm.messages.length">---- end of history ----</strong><br>
         <span style = "font-style:italic; text-align: center; margin-left: 40%" ng-bind="vm.welcomeText.text"></span>
         <li class="col-xs-12 col-md-12 chat-message" style = "display:inline;" ng-repeat="message in vm.messages">
           <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
