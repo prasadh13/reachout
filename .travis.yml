@@ -41,6 +41,12 @@ after_script:
   - nsp audit-package
   - grunt coverage
 notifications:
+  email:
+    recipients:
+      - satish.mutalik@b2benable.com
+      - prasad.hirlikar@b2benable.com
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
   webhooks:
     urls:
       - $GITTER_IM_URL
