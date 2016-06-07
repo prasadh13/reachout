@@ -14,6 +14,9 @@ var sessionUsers = {};
 // Create the chat configuration
 module.exports = function (io, socket, req, res) {
   connectedUsers[socket.request.user.username] = socket;
+  if (socket) {
+    console.log(socket.request.user.username + 'just logged in');
+  }
   console.log(Object.keys(connectedUsers));
   socket.on('newUser', function(data) {
     sessionUsers = data;
@@ -80,6 +83,7 @@ module.exports = function (io, socket, req, res) {
   });
   // Emit the status event when a socket client is disconnected
   socket.on('disconnect', function () {
+    console.log("disconnecting the socket");
     delete connectedUsers[socket.request.user.username];
     /*
     io.emit('adduser', onlineUsers);*/

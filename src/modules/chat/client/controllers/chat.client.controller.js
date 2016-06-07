@@ -6,9 +6,9 @@
     .module('chat')
     .controller('ChatController', ChatController);
 
-  ChatController.$inject = ['$scope', '$state', 'Authentication', 'Socket', '$timeout', 'ListUsersService', '$http'];
+  ChatController.$inject = ['$scope', '$rootScope', '$state', 'Authentication', 'Socket', '$timeout', 'ListUsersService', '$http'];
 
-  function ChatController($scope, $state, Authentication, Socket, $timeout, ListUsersService, $http) {
+  function ChatController($scope, $rootScope, $state, Authentication, Socket, $timeout, ListUsersService, $http) {
     var vm = this;
     vm.messages = [];
     vm.users = [];
@@ -24,19 +24,16 @@
     vm.error = null;
     vm.archiveMessages = archiveMessages;
     vm.historyMessages = [];
-    vm.casenumber = 1234;
+    vm.casenumber = "1234";
+    archiveMessages();
 
     init();
-    archiveMessages();
+
     function init() {
+      console.log("initializing");
       // If user is not signed in then redirect back home
       if (!Authentication.user) {
         $state.go('home');
-      }
-
-      // Make sure the Socket is connected
-      if (!Socket.socket) {
-        Socket.connect();
       }
       var userinfo = {
         type: 'status',
@@ -54,6 +51,7 @@
       // Add an event listener to the 'chatMessage' event
       Socket.on('adduser', function(response) {
         vm.welcomeText = response;
+        vm.historyMessages = [];
         $scope.$apply();
       });
       Socket.on('chatMessage', function (message) {
@@ -70,15 +68,10 @@
         vm.users.unshift(user);
         $scope.$digest();
       });
-      // Remove the event listener when the controller instance is destroyed
-      $scope.$on('$destroy', function () {
-        $timeout(function() {
-          Socket.removeListener('adduser');
-        }, 2000);
-      });
     }
+    console.log($state.$current.data.pageTitle);
     function archiveMessages() {
-      $http.get('/api/chat/all', vm.credentials).success(function (response) {
+      $http.get('/api/chat/all/' + vm.casenumber).success(function (response) {
         // If successful we assign the response to the global user model
         vm.historyMessages = response;
       }).error(function (response) {
@@ -90,12 +83,12 @@
       for (var i = 0; i < vm.users.length; i++) {
         if (vm.users[i].selected === true) {
           vm.selectedUsers[vm.users[i].username] = vm.users[i];
-        } else if (vm.users[i].username === vm.authentication.user.username) {
-          vm.selectedUsers[vm.users[i].username] = vm.users[i];
         }
       }
+      vm.selectedUsers[vm.authentication.user.username] = vm.authentication.user;
+      console.log(vm.selectedUsers);
       if ((Object.keys(vm.selectedUsers).length - 1) === 0) {
-        vm.error = "No participant selected.";
+        console.log(":(");
       } else {
         vm.chatWindow = true;
         vm.to = to;
@@ -103,7 +96,7 @@
       }
     }
     function getAllUsers() {
-      vm.users = ListUsersService.query();
+      vm.users = ListUsersService.query({ 'casenumber': vm.casenumber });
     }
     // Create a controller method for sending messages
     function sendMessage() {

@@ -41,9 +41,9 @@ angular
 ListUsersService.$inject = ['$resource'];
 
 function ListUsersService($resource) {
-  return $resource('api/users/all', {}, {
+  return $resource('api/users/all/', {}, {
     list: {
-      method: 'GET'
+      'query': { method: 'GET', isArray: false }
     }
   });
 }

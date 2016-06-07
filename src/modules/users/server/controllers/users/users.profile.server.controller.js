@@ -106,13 +106,27 @@ exports.me = function (req, res) {
  * List of Users
  */
 exports.list = function (req, res) {
-  User.find({ 'casenumber': '1234' }).select('profileImageURL username created casenumber caseworker').sort('-created').exec(function (err, users) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(users);
-    }
-  });
+  console.log(typeof req.query.casenumber);
+  if (req.user.caseworker) {
+    User.find({ $and: [{ casenumber: req.query.casenumber }, { caseworker: false }] }).select('profileImageURL username created casenumber caseworker').sort('-created').exec(function (err, users) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        console.log(users);
+        res.json(users);
+      }
+    });
+  } else {
+    User.find({ $and: [{ casenumber: req.query.casenumber }, { caseworker: true }] }).select('profileImageURL username created casenumber caseworker').sort('-created').exec(function (err, users) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(users);
+      }
+    });
+  }
 };

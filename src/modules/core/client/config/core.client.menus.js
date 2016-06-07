@@ -12,11 +12,6 @@
       roles: ['user']
     });
     menuService.addMenuItem('topbar', {
-      title: 'ABOUT',
-      state: 'about',
-      roles: ['*']
-    });
-    menuService.addMenuItem('topbar', {
       title: 'SEARCH',
       state: 'search-locations',
       roles: ['*']
@@ -29,6 +24,11 @@
     menuService.addMenuItem('topbar', {
       title: 'PROFILE',
       state: 'settings.profile',
+      roles: ['*']
+    });
+    menuService.addMenuItem('topbar', {
+      title: 'ABOUT',
+      state: 'about',
       roles: ['*']
     });
     menuService.addMenuItem('account', {

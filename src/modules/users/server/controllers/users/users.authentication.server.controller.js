@@ -6,6 +6,7 @@
 var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   mongoose = require('mongoose'),
+  ChatConnect = require(path.resolve('./modules/chat/server/sockets/chat.server.socket.config')),
   passport = require('passport'),
   User = mongoose.model('User');
 
@@ -14,7 +15,6 @@ var noReturnUrls = [
   '/authentication/signin',
   '/authentication/signup'
 ];
-
 /**
  * Signup
  */
@@ -52,9 +52,12 @@ exports.signup = function (req, res) {
  * Signin after passport authentication
  */
 exports.signin = function (req, res, next) {
+  console.log("signing in");
   passport.authenticate('local', function (err, user, info) {
     if (err || !user) {
       res.status(400).send(info);
+      console.log(info);
+      console.log(user);
     } else {
       // Remove sensitive data before login
       user.password = undefined;
@@ -62,6 +65,7 @@ exports.signin = function (req, res, next) {
 
       req.login(user, function (err) {
         if (err) {
+          console.log(err);
           res.status(400).send(err);
         } else {
           res.json(user);
