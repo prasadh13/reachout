@@ -146,6 +146,9 @@ var UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  lastActivity: {
+    type: Date
+  },
   /* For reset password */
   resetPasswordToken: {
     type: String

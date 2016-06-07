@@ -108,7 +108,7 @@ exports.me = function (req, res) {
 exports.list = function (req, res) {
   console.log(typeof req.query.casenumber);
   if (req.user.caseworker) {
-    User.find({ $and: [{ casenumber: req.query.casenumber }, { caseworker: false }] }).select('profileImageURL username created casenumber caseworker').sort('-created').exec(function (err, users) {
+    User.find({ $and: [{ casenumber: req.query.casenumber }, { caseworker: false }] }).select('profileImageURL username created casenumber caseworker lastActivity').sort('-created').exec(function (err, users) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
@@ -119,7 +119,7 @@ exports.list = function (req, res) {
       }
     });
   } else {
-    User.find({ $and: [{ casenumber: req.query.casenumber }, { caseworker: true }] }).select('profileImageURL username created casenumber caseworker').sort('-created').exec(function (err, users) {
+    User.find({ $and: [{ casenumber: req.query.casenumber }, { caseworker: true }] }).select('profileImageURL username created casenumber caseworker lastActivity ').sort('-created').exec(function (err, users) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)

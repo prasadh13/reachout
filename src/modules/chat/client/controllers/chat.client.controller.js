@@ -106,7 +106,8 @@
       var message = {
         text: vm.messageText,
         receiver: vm.to,
-        sender: vm.authentication.user.username
+        sender: vm.authentication.user.username,
+        caseId: vm.casenumber
       };
       // Emit a 'chatMessage' message event
       Socket.emit('chatMessage', message);

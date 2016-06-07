@@ -13,7 +13,7 @@
           <i ng-if="user.caseworker == true" class="fa fa-star fa-lg pic-role"></i> 
           <input ng-if= "user.username !== vm.authentication.user.username" type="checkbox" class="pic-checkbox" id="{{user.username}}" ng-model ="user.selected" value = "{{user.username}}" />
           <strong>{{user.username}}</strong>
-          <span class="fa-stack fa-lg" style = "margin-left:-0.5em" ng-if = "notifs[user.username] > 0">
+          <span class="fa-stack fa-lg" style = "margin-left:-0.5em" ng-if = "notifs[user.username] > 0 && !user.selected">
             <i class="fa fa-circle fa-stack-1x" style = "color:red"></i>
             <span class="fa-stack-1x fa-stack-text fa-inverse" style = "font-size: 0.6em">{{notifs[user.username]}}</span>
           </span>

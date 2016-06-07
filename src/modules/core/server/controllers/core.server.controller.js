@@ -26,6 +26,7 @@ exports.renderIndex = function (req, res) {
       phoneNum: req.user.phoneNum,
       latitude: req.user.latitude,
       longitude: req.user.longitude,
+      lastActivity: req.user.lastActivity,
       additionalProvidersData: req.user.additionalProvidersData
     };
   }

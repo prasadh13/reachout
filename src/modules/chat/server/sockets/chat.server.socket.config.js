@@ -17,9 +17,10 @@ module.exports = function (io, socket, req, res) {
   if (socket) {
     console.log(socket.request.user.username + 'just logged in');
   }
-  console.log(Object.keys(connectedUsers));
   socket.on('newUser', function(data) {
     sessionUsers = data;
+    console.log("Session started");
+    console.log(Object.keys(sessionUsers));
     connectedUsers[socket.request.user.username].emit('adduser', { text: "You started a discussion" });
     /*
     onlineUsers[data.username] = data;
@@ -28,7 +29,9 @@ module.exports = function (io, socket, req, res) {
   socket.on('chatMessage', function(data) {
     var message = null;
     var msgOrigin = null;
-    var caseId = '1234';
+    var caseId = data.caseId;
+    console.log("connected users");
+    console.log(Object.keys(connectedUsers));
     for (var participant in sessionUsers) {
       if (participant in connectedUsers) {
         msgOrigin = {
@@ -71,11 +74,10 @@ module.exports = function (io, socket, req, res) {
           content: data.text,
           casenumber: caseId
         });
+        connectedUsers[socket.request.user.username].emit('offline', { text: participant + ' is currently offline' });
         message.save(function (err) {
           if (err) {
             console.log("message could not be saved :(");
-          } else {
-            connectedUsers[socket.request.user.username].emit('offline', { text: participant + ' is currently offline' });
           }
         });
       }

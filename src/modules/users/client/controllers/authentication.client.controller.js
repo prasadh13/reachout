@@ -5,9 +5,9 @@
     .module('users')
     .controller('AuthenticationController', AuthenticationController);
 
-  AuthenticationController.$inject = ['$scope', '$rootScope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator', 'Socket', '$timeout'];
+  AuthenticationController.$inject = ['$scope', '$rootScope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator', 'Socket', '$timeout', 'UsersService'];
 
-  function AuthenticationController($scope, $rootScope, $state, $http, $location, $window, Authentication, PasswordValidator, Socket, $timeout) {
+  function AuthenticationController($scope, $rootScope, $state, $http, $location, $window, Authentication, PasswordValidator, Socket, $timeout, UsersService) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -58,6 +58,7 @@
         $scope.locations = data;
         vm.credentials.latitude = data.results[0].geometry.location.lat;
         vm.credentials.longitude = data.results[0].geometry.location.lng;
+        vm.credentials.lastActivity = new Date();
         $http.post('/api/auth/signup', vm.credentials).success(function (response) {
           // If successful we assign the response to the global user model
           vm.authentication.user = response;
@@ -89,10 +90,20 @@
         // If successful we assign the response to the global user model
         vm.authentication.user = response;
         // Make sure the Socket is connected
-        if (!Socket.socket) {
-          Socket.connect();
-          $rootScope.$emit("chatInit", {});
-        }
+        // Update last login datetime stamp
+        vm.authentication.user.lastActivity = new Date();
+        var user = new UsersService(vm.authentication.user);
+        user.$update(function (response) {
+          if (!Socket.socket) {
+            Socket.connect();
+          }
+          console.log("Updated last activity");
+          console.log(response);
+          vm.authentication.user = response;
+        }, function (response) {
+          vm.error = response.data.message;
+        });
+        console.log(vm.authentication.user);
         // ItemsService.saveItem(response, $scope.image);
         // And redirect to the previous or home page
         $state.go($state.previous.state.name || 'home', $state.previous.params);

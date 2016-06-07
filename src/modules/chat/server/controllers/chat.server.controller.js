@@ -12,7 +12,7 @@ var path = require('path'),
  * List of Messages
  */
 exports.getByUsername = function (req, res) {
-  Message.find({ $and: [{ $or: [{ receiver: req.user.username }, { sender: req.user.username }] }, { 'casenumber': req.params.caseId }] }).sort('-created').exec(function (err, archiveMessages) {
+  Message.find({ $and: [{ $or: [{ receiver: req.user.username }] }, { 'casenumber': req.params.caseId }] }).sort('-created').exec(function (err, archiveMessages) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
