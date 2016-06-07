@@ -54,6 +54,8 @@
 
       // Populate user object
       vm.user = Authentication.user = response;
+      console.log("new photo");
+      console.log(vm.user);
 
       // Clear upload buttons
       cancelUpload();
