@@ -24,11 +24,10 @@
     vm.error = null;
     vm.archiveMessages = archiveMessages;
     vm.historyMessages = [];
-    vm.casenumber = "1234";
+    vm.casenumber = vm.authentication.user.casenumber;
     archiveMessages();
     $scope.notifs = {};
     init();
-
     function init() {
       console.log("initializing");
       // If user is not signed in then redirect back home

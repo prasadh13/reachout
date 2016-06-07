@@ -27,7 +27,8 @@ exports.renderIndex = function (req, res) {
       latitude: req.user.latitude,
       longitude: req.user.longitude,
       lastActivity: req.user.lastActivity,
-      additionalProvidersData: req.user.additionalProvidersData
+      additionalProvidersData: req.user.additionalProvidersData,
+      casenumber: req.user.casenumber
     };
   }
 
