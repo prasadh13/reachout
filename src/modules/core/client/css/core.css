@@ -126,7 +126,7 @@ a:hover .header-profile-image {
   color: #fff;
   background-color: #003264;
 }
-.navbar-default .navbar-nav > li.pad > a.login-menu:active {
+.navbar-default .navbar-nav > li.pad.active > a.login-menu {
   opacity: 1;
   color: #fff;
   background-color: #003264;
@@ -135,13 +135,13 @@ a:hover .header-profile-image {
   background:none;
   color: #fff;
   border: 2px solid #fff;
-}  
-.navbar-default .navbar-nav > .open > a {
-  background-color: #003264;
-  background-image: none;
 }
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    background-color: #003264;
-    background-image: none;
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: transparent;
+  background-image: none; 
+} 
+.divider {
+    border-right: 1px solid black;
 }
+
 

@@ -3,22 +3,22 @@
     	<h1>Search</h1>
   	</div>
 	<div class = "row">
-		<div class = "col-xs-3 col-md-3">
-			<div class = "container-fluid jumbotron color-background checkboxes">
+		<div class = "col-xs-12 col-sm-3 col-md-3">
+			<div class = "container-fluid color-background checkboxes">
 				<div class = "label-filter">
 					<h3 class = "text-color-white">Filters</h3>
 				</div>
 				<br>
  				<ul>
-    				<li class = "text-color-white"><input type="checkbox" ng-model = "facilities" ng-change = "getData()">Foster Care Facilities</li><br>
-    				<li class = "text-color-white"><input type="checkbox" ng-model = "schools" ng-change = "getData()">Schools</li><br>
+    				<li class = "text-color-white"><input type="checkbox" ng-model = "facilities" ng-change = "getData()">&nbsp;&nbsp;Foster Care Facilities</li><br>
+    				<li class = "text-color-white"><input type="checkbox" ng-model = "schools" ng-change = "getData()">&nbsp;&nbsp;Schools</li><br>
     				<!-- <li class = "text-color-white"><input type="checkbox" ng-model = "transport">Public transport</li> -->
   				</ul>
 			</div>	
 		</div>
-		<div class = "col-xs-9 col-md-9">
+		<div class = "col-xs-12 col-sm-9 col-md-9">
 			<div ng-show = "vm.authentication.user">
-				<ng-map default-style="false" center="{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}" zoom="11">
+				<ng-map center="{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}" zoom="11">
 					<marker position = "{{vm.authentication.user.latitude}}, {{vm.authentication.user.longitude}}" title = "{{vm.authentication.user.stAddr2}} {{vm.authentication.user.stAddr1}}"></marker>
 					<marker icon = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png" ng-repeat = "place in schoolLocations" title="{{place.name}}" position = "{{place.lat}}, {{place.lng}}"></marker>
 					<marker icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" ng-repeat = "place in transportLocations" title="{{place.name}}" position = "{{place.lat}}, {{place.lng}}"></marker>
@@ -33,6 +33,7 @@
         			</info-window>
     			</ng-map>
 			</div>
+			<br><br>
 		</div>
 	</div>
 </section>

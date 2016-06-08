@@ -35,18 +35,21 @@
   max-height: 150px;
 }
 ng-map {
-  width:100%; 
-  height:550px;
+  width: 100%; 
+  height:450px;
   position: absolute;
 }
+.checkboxes {
+  border-radius: 5px;
+}
 .checkboxes ul {
-  margin-left:-4em;
   list-style: none;
 }
 .label-filter {
-  margin-left:-3em;
+  padding-left:0.8em;
   text-align: center;
-  margin-top:-3em;
+  border-bottom: 1px solid #fff;
+  
 }
 .img-thumbnail {
   border: 1px solid #005cad;

@@ -47,7 +47,7 @@
         });
       });
     }
-    function getTransport() {
+    /*function getTransport() {
       var t_array = [];
       NgMap.getMap().then(function(map) {
         var request = {
@@ -70,7 +70,7 @@
           $scope.$digest();
         });
       });
-    }
+    }*/
     function getFacilities() {
       var url = 'https://chhs.data.ca.gov/resource/mffa-c6z5.json?$where=within_circle(location,' + vm.authentication.user.latitude + ',' + vm.authentication.user.longitude + ',' + '16093)&facility_status=LICENSED';
       $http.get(url)
