@@ -23,6 +23,9 @@
       vm.place = place;
       $scope.map.showInfoWindow('facilitiesInfo', place.facility_number);
     };
+    if (vm.authentication.user) {
+       document.body.style.background = "#fff";
+    }
     function getSchools() {
       var request = {
         location: $scope.currentLocation,
