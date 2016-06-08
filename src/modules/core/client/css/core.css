@@ -176,5 +176,23 @@ a:hover .header-profile-image {
 .navbar-collapse.in.collapse > ul.display-on-collapse  {
   display: inline;
 }
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+}
+.footer {
+  border-top: 2px solid #eee;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  background-color: #eee;
+  /*color: white;*/
+}
 
 
