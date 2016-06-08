@@ -6,14 +6,14 @@
   <form name="vm.userForm" ng-submit="vm.signup(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
   <div class="col-xs-6 col-md-6">
         <div class="form-group" show-errors>
-          <label for="firstName" class = "text-color-white">First Name</label>
+          <label for="firstName" class = "text-color-white" required>First Name</label>
           <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.credentials.firstName" placeholder="First Name" required>
           <div ng-messages="vm.userForm.firstName.$error" role="alert">
             <p class="help-block error-text" ng-message="required">First name is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label for="lastName" class = "text-color-white">Last Name</label>
+          <label for="lastName" class = "text-color-white" required>Last Name</label>
           <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.credentials.lastName" placeholder="Last Name" required>
           <div ng-messages="vm.userForm.lastName.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Last name is required.</p>
