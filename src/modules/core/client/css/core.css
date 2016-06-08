@@ -1,5 +1,9 @@
 body {
   background-color: #005cad;
+  font-family: Segoe UI,Helvetica Neue,Tahoma,Arial,sans-serif;
+}
+a {
+  border-radius: 0 !important;
 }
 .content {
   margin-top: 50px;
@@ -100,9 +104,12 @@ a:hover .header-profile-image {
     border-radius: 0;
     text-align: center;
 }
-.nav li.header-menu a:hover {
-    border: 2px solid #661a00;
-    background-color: #404040;
+.header-menu li a {
+  margin: 20px;
+}
+.header-menu {
+  margin-top: -30px;
+  margin-left: -30px;
 }
 .navbar-default .navbar-nav > .open > a {
   background-color: #005cad;
