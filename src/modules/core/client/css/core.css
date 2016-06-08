@@ -1,5 +1,4 @@
 body {
-  background-color: #005cad;
   font-family: Segoe UI,Helvetica Neue,Tahoma,Arial,sans-serif;
 }
 a {
@@ -57,13 +56,13 @@ a:hover .header-profile-image {
 .footer, .push {
     height: 142px; /* .push must be the same height as .footer */
 }
-.navigate {
+/*.navigate {
     display: inline-block;
     list-style-type: none;
     padding-left: 16em;
-}
+}*/
 .pad {
-  padding-right: 2em;
+  padding-right: 30px;
   font-weight: bold;
 }
 .pad2 {
@@ -122,16 +121,27 @@ a:hover .header-profile-image {
   margin-top: -30px;
   margin-left: -70px;
 }
-/*.navbar-default .navbar-nav > .open > a {
-  background-color: #005cad;
+.navbar-default .navbar-nav > li.pad > a.login-menu:hover {
+  opacity: 1;
+  color: #fff;
+  background-color: #003264;
+}
+.navbar-default .navbar-nav > li.pad > a.login-menu:active {
+  opacity: 1;
+  color: #fff;
+  background-color: #003264;
+}
+.navbar-default .navbar-nav > li.pad > a.login-menu {
+  background:none;
+  color: #fff;
+  border: 2px solid #fff;
+}  
+.navbar-default .navbar-nav > .open > a {
+  background-color: #003264;
   background-image: none;
 }
-.navbar-default .navbar-nav > .dropdown > a:hover {
-  background-color: #005cad;
-}
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    border: 2px solid #661a00;
-    background-color: #404040;
+    background-color: #003264;
     background-image: none;
-}*/
+}
 

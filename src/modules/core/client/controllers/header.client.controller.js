@@ -17,7 +17,7 @@
 
     $scope.$on('$stateChangeSuccess', stateChangeSuccess);
     $scope.changeBackground = function() {
-      document.body.style.background = "white";
+      document.body.style.background = "#fff";
     };
     function stateChangeSuccess() {
       // Collapsing the menu after navigation

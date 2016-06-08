@@ -10,9 +10,9 @@
   </div>
   <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
     <br>
-    <ul class="navigate nav navbar-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);" ng-show = "vm.authentication.user">
-      <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}} header-menu" uib-dropdown="item.type === 'dropdown'">
-        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title" style = "color:white; margin-right: 3em; font-size: 1.2em"></a>
+    <ul class="nav navbar-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);" ng-show = "vm.authentication.user">
+      <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}} pad" uib-dropdown="item.type === 'dropdown'">
+        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title" ng-click = "changeBackground()" class = "btn btn-lg btn-default login-menu"></a>
       </li>
     </ul><br>
     <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
@@ -34,12 +34,3 @@
     </ul>
   </nav>
 </div>
-<script type="text/javascript">
-$(document).ready(function(){
-  console.log("hi");
-    $("li.pad a").click(function(){
-      console.log("on click")
-        $("body").removeClass("color-background");
-    });
-});
-</script> 
