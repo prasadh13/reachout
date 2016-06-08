@@ -79,8 +79,19 @@ exports.signin = function (req, res, next) {
  * Signout
  */
 exports.signout = function (req, res) {
-  req.logout();
-  res.redirect('/');
+  var user = new User(req.user);
+  user.lastActivity = new Date();
+  user.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      console.log("logging out");
+      req.logout();
+      res.redirect('/');
+    }
+  });
 };
 
 /**

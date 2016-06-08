@@ -12,15 +12,29 @@ var path = require('path'),
  * List of Messages
  */
 exports.getByUsername = function (req, res) {
-  Message.find({ $and: [{ $or: [{ receiver: req.user.username }] }, { 'casenumber': req.params.caseId }] }).sort('-created').exec(function (err, archiveMessages) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(archiveMessages);
-    }
-  });
+  if (req.params.state === '1') {
+    console.log("after siging in");
+    Message.find({ $and: [{ receiver: req.user.username }, { 'sender.username': req.params.sender }, { 'casenumber': req.params.caseId }, { created: { $gte: req.user.lastActivity } }] }).sort('-created').exec(function (err, archiveMessages) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(archiveMessages);
+      }
+    });
+  } else {
+    console.log("after tab window");
+    Message.find({ $or: [{ $and: [{ receiver: req.user.username }, { 'sender.username': req.params.sender }, { 'casenumber': req.params.caseId }] }, { $and: [{ receiver: req.params.sender }, { 'sender.username': req.user.username }, { 'casenumber': req.params.caseId }] }] }).sort('-created').exec(function (err, archiveMessages) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(archiveMessages);
+      }
+    });
+  }
 };
 /**
  * Chat middleware

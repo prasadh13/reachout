@@ -25,9 +25,21 @@
     vm.archiveMessages = archiveMessages;
     vm.historyMessages = [];
     vm.casenumber = vm.authentication.user.casenumber;
-    archiveMessages();
     $scope.notifs = {};
+    vm.chatWith = null;
+    vm.state = 1;
     init();
+
+    $scope.updateSelection = function(position, array) {
+      angular.forEach(array, function(user, index) {
+        if (position !== index)
+          user.selected = false;
+        if (position === index)
+          vm.chatWith = user.username;
+      });
+      vm.messages = [];
+      archiveMessages();
+    };
     function init() {
       console.log("initializing");
       // If user is not signed in then redirect back home
@@ -41,16 +53,10 @@
         username: Authentication.user.username,
         online: true
       };
-      /*
-      $timeout(function() {
-        Socket.emit('newUser', userinfo);
-      }, 2000);
-      */
       // Event listner for user's online status
       // Add an event listener to the 'chatMessage' event
       Socket.on('adduser', function(response) {
         vm.welcomeText = response;
-        vm.historyMessages = [];
         $scope.$apply();
       });
       Socket.on('chatMessage', function (message) {
@@ -69,16 +75,17 @@
         $scope.$digest();
       });
     }
-    console.log($state.$current.data.pageTitle);
     function archiveMessages() {
-      $http.get('/api/chat/all/' + vm.casenumber).success(function (response) {
+      $http.get('/api/chat/all/' + vm.casenumber + '/' + vm.chatWith + '/' + vm.state).success(function (response) {
         // If successful we assign the response to the global user model
         vm.historyMessages = response;
+        chat();
       }).error(function (response) {
         vm.error = response.message;
       });
     }
-    function chat(to) {
+    function chat() {
+      vm.state = 0;
       vm.selectedUsers = {};
       for (var i = 0; i < vm.users.length; i++) {
         if (vm.users[i].selected === true) {
@@ -86,14 +93,9 @@
         }
       }
       vm.selectedUsers[vm.authentication.user.username] = vm.authentication.user;
+      vm.chatWindow = true;
+      Socket.emit('newUser', vm.selectedUsers);
       console.log(vm.selectedUsers);
-      if ((Object.keys(vm.selectedUsers).length - 1) === 0) {
-        console.log(":(");
-      } else {
-        vm.chatWindow = true;
-        vm.to = to;
-        Socket.emit('newUser', vm.selectedUsers);
-      }
     }
     function getAllUsers() {
       vm.users = ListUsersService.query({ 'casenumber': vm.casenumber });
@@ -101,6 +103,7 @@
     // Create a controller method for sending messages
     function sendMessage() {
       console.log(vm.to);
+      $scope.notifs[vm.chatWith] = 0;
       // Create a new message object
       var message = {
         text: vm.messageText,

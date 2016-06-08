@@ -5,13 +5,13 @@
   </div>
   <!-- Show user status -->
   <div class = "row">
-    <div class="col-xs-6 col-md-4 div-display" style="min-height:28em;" ng-init = "vm.getAllUsers()">
+    <div class="col-xs-6 col-md-4 div-display" ng-init = "vm.getAllUsers()" style="padding-bottom: 2em;">
       <h3 style="text-align: center; border-bottom: solid thin #C8C8C8 ">Select Participants</h3>
       <div class="col-xs-4 chat-message-pic" ng-repeat = "user in vm.users">
         <div class="pic-display">
           <img src="{{user.profileImageURL}}" alt = "{{user.username}}" class = "pic" />
           <i ng-if="user.caseworker == true" class="fa fa-star fa-lg pic-role"></i> 
-          <input ng-if= "user.username !== vm.authentication.user.username" type="checkbox" class="pic-checkbox" id="{{user.username}}" ng-model ="user.selected" value = "{{user.username}}" />
+          <input ng-if= "user.username !== vm.authentication.user.username" type="checkbox" class="pic-checkbox" id="{{user.username}}" ng-model ="user.selected" value = "{{user.username}}" ng-click = "updateSelection($index, vm.users)" />
           <strong>{{user.username}}</strong>
           <span class="fa-stack fa-lg" style = "margin-left:-0.5em" ng-if = "notifs[user.username] > 0 && !user.selected">
             <i class="fa fa-circle fa-stack-1x" style = "color:red"></i>
@@ -19,9 +19,9 @@
           </span>
         </div>
       </div>
-      <div style="position: absolute; bottom:0; margin-bottom: 1em; margin-left:30%">
+     <!--  <div style="position: absolute; bottom:0; margin-bottom: 1em; margin-left:30%">
         <button type = "button" class = "btn btn-primary" ng-click = "vm.chat()">Start Discussion</button>
-      </div>
+      </div> -->
     </div>
     <uib-alert type="danger" ng-show="vm.error" class="text-center text-danger">
       <span ng-bind="vm.error"></span>
@@ -37,11 +37,11 @@
           <div class="pull-left chat-message-details">
             <strong ng-bind="message.sender.username"></strong>
             <br>
-            <span ng-bind="message.content"></span>
+            <span class="text-muted" style = "font-style:italic;" ng-bind="message.content"></span>
           </div>
         </li>
         <br>
-        <strong ng-if="vm.historyMessages.length" class = "text-muted" style = "font-style:italic; text-align: center; margin-left: 40%" ng-hide = "vm.messages.length">---- end of history ----</strong><br>
+        <!-- <strong ng-if="vm.historyMessages.length" class = "text-muted" style = "font-style:italic; text-align: center; margin-left: 40%" ng-hide = "vm.messages.length">---- end of history ----</strong><br> -->
         <span style = "font-style:italic; text-align: center; margin-left: 40%" ng-bind="vm.welcomeText.text"></span>
         <li class="col-xs-12 col-md-12 chat-message" style = "display:inline;" ng-repeat="message in vm.messages">
           <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>

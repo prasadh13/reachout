@@ -58,7 +58,6 @@
         $scope.locations = data;
         vm.credentials.latitude = data.results[0].geometry.location.lat;
         vm.credentials.longitude = data.results[0].geometry.location.lng;
-        vm.credentials.lastActivity = new Date();
         $http.post('/api/auth/signup', vm.credentials).success(function (response) {
           // If successful we assign the response to the global user model
           vm.authentication.user = response;
@@ -85,26 +84,13 @@
 
         return false;
       }
-      console.log("signing in");
       $http.post('/api/auth/signin', vm.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         vm.authentication.user = response;
         // Make sure the Socket is connected
-        // Update last login datetime stamp
-        vm.authentication.user.lastActivity = new Date();
-        var user = new UsersService(vm.authentication.user);
-        user.$update(function (response) {
-          if (!Socket.socket) {
-            Socket.connect();
-          }
-          console.log("Updated last activity");
-          console.log(response);
-          vm.authentication.user = response;
-        }, function (response) {
-          vm.error = response.data.message;
-        });
-        console.log(vm.authentication.user);
-        // ItemsService.saveItem(response, $scope.image);
+        if (!Socket.socket) {
+          Socket.connect();
+        }
         // And redirect to the previous or home page
         $state.go($state.previous.state.name || 'home', $state.previous.params);
       }).error(function (response) {

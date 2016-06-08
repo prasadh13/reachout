@@ -10,9 +10,9 @@ var path = require('path'),
   User = mongoose.model('User'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 var connectedUsers = {};
-var sessionUsers = {};
 // Create the chat configuration
 module.exports = function (io, socket, req, res) {
+  var sessionUsers = {};
   connectedUsers[socket.request.user.username] = socket;
   if (socket) {
     console.log(socket.request.user.username + 'just logged in');
