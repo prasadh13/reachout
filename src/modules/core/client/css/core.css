@@ -185,14 +185,14 @@ body {
   margin-bottom: 100px;
 }
 .footer {
-  border-top: 2px solid #eee;
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 80px;
-  background-color: #eee;
-  /*color: white;*/
+  height: 60px;
+  background-color: #005cad;
+  color: #fff;
+  font-size: 0.8em;
 }
 
 
