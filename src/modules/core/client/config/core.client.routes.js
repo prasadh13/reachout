@@ -43,7 +43,10 @@
         url: '/about',
         templateUrl: 'modules/core/client/views/about.client.view.html',
         controller: 'HomeController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'About'
+        }
       })
       .state('profile-options', {
         url: '/profile',
