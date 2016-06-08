@@ -33,6 +33,12 @@
         controller: 'HomeController',
         controllerAs: 'vm'
       })
+      .state('home-site', {
+        url: '/home-site',
+        templateUrl: 'modules/core/client/views/home.client.view.html',
+        controller: 'HomeController',
+        controllerAs: 'vm'
+      })
       .state('about', {
         url: '/about',
         templateUrl: 'modules/core/client/views/about.client.view.html',
