@@ -47,7 +47,7 @@
         });
       });
     }
-    /*function getTransport() {
+    /* function getTransport() {
       var t_array = [];
       NgMap.getMap().then(function(map) {
         var request = {
