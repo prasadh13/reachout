@@ -22,7 +22,7 @@ module.exports = {
         'https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.min.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        'http://maps.google.com/maps/api/js?key=AIzaSyBFYPYF1sV_cM-Bb_x-hi9Gpwg9K8WB7nA&libraries=places',
+        'https://maps.google.com/maps/api/js?key=AIzaSyBFYPYF1sV_cM-Bb_x-hi9Gpwg9K8WB7nA&libraries=places',
         'public/lib/ngmap/build/scripts/ng-map.min.js'
         // endbower
       ],
