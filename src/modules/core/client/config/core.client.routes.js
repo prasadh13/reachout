@@ -35,7 +35,7 @@
       })
       .state('home-site', {
         url: '/home-site',
-        templateUrl: 'modules/core/client/views/home.client.view.html',
+        templateUrl: 'modules/core/client/views/home2.client.view.html',
         controller: 'HomeController',
         controllerAs: 'vm'
       })
