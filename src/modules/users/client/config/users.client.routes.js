@@ -36,7 +36,8 @@
         controller: 'HomeController',
         controllerAs: 'vm',
         data: {
-          roles: ['user', 'admin']
+          roles: ['user', 'admin'],
+          pageTitle: 'Search'
         }
       })
       .state('settings.password', {
