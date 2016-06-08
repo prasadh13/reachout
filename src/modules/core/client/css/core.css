@@ -105,13 +105,24 @@ a:hover .header-profile-image {
     text-align: center;
 }
 .header-menu li a {
+  background: transparent;
   margin: 20px;
+  border: 2px solid #fff; 
+  color: #fff;
+}
+.header-menu li a:hover {
+  opacity: 1;
+  color: #fff;
+  background-color: #003264;
+}
+.header-menu li a:active {
+  background-color: #003264;
 }
 .header-menu {
   margin-top: -30px;
-  margin-left: -30px;
+  margin-left: -70px;
 }
-.navbar-default .navbar-nav > .open > a {
+/*.navbar-default .navbar-nav > .open > a {
   background-color: #005cad;
   background-image: none;
 }
@@ -122,5 +133,5 @@ a:hover .header-profile-image {
     border: 2px solid #661a00;
     background-color: #404040;
     background-image: none;
-}
+}*/
 

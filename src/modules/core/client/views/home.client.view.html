@@ -6,4 +6,19 @@
         <img alt="Reachout" class="img-responsive" src="modules/core/client/img/brand/reachoutlogo.png" />
       </div>
     </div>
+    <div class = "row" ng-controller="HeaderController as vm">
+      <br>
+      <div class="col-md-4 col-md-offset-5 col-sm-6 col-sm-offset-3 col-xs-12">
+        <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
+          <ul class="nav navbar-nav header-menu" ng-hide="vm.authentication.user">
+            <li ui-sref-active="active">
+              <a id = "log" ui-sref="authentication.signup" class = "btn btn-lg btn-default">Signup</a>
+            </li>
+            <li ui-sref-active="active">
+              <a id = "log" ui-sref="authentication.signin" class = "btn btn-lg btn-default">Signin</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 </section>

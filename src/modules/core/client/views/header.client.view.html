@@ -15,14 +15,6 @@
         <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title" style = "color:white; margin-right: 3em; font-size: 1.2em"></a>
       </li>
     </ul><br>
-    <ul class="nav navbar-nav header-menu" ng-hide="vm.authentication.user">
-      <li ui-sref-active="active">
-        <a id = "log" ui-sref="authentication.signup" class = "btn btn-lg btn-default" style = "border: 2px solid #fff;; color: #fff; background: transparent;">Signup</a>
-      </li>
-      <li ui-sref-active="active">
-        <a id = "log" ui-sref="authentication.signin" class = "btn btn-lg btn-default" style = "border: 2px solid #fff; color: #fff; background: transparent;">Signin</a>
-      </li>
-    </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
       <li class="dropdown" uib-dropdown class = "settings-control">
         <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button" style="margin-top: -2em; margin-right: -2em;">
