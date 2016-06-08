@@ -12,22 +12,22 @@
       roles: ['user']
     });
     menuService.addMenuItem('topbar', {
-      title: 'SEARCH',
+      title: 'Search',
       state: 'search-locations',
       roles: ['*']
     });
     menuService.addMenuItem('topbar', {
-      title: 'CHAT',
+      title: 'Chat',
       state: 'chat',
       roles: ['*']
     });
     menuService.addMenuItem('topbar', {
-      title: 'PROFILE',
+      title: 'Profile',
       state: 'settings.profile',
       roles: ['*']
     });
     menuService.addMenuItem('topbar', {
-      title: 'ABOUT',
+      title: 'About',
       state: 'about',
       roles: ['*']
     });
