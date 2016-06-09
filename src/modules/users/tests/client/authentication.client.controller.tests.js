@@ -46,7 +46,6 @@
         // Initialize the Authentication controller
         AuthenticationController = $controller('AuthenticationController as vm', {
           $scope: scope
-
         });
       }));
 
@@ -123,17 +122,24 @@
       describe('$scope.signup()', function () {
         it('should register with correct data', function () {
           // Test expected GET request
-          scope.vm.authentication.user = 'Fred';
-          scope.vm.authentication.user.stAddr1 = "123 Senate Ave";
-          scope.vm.authentication.user.city = "Fairfax";
-          scope.vm.authentication.user.state = "Virginia";
-          $httpBackend.when('POST', '/api/auth/signup').respond(200, 'Fred');
+          scope.vm.credentials.firstname = 'Fred';
+          scope.vm.credentials.lastname = "James";
+          scope.vm.credentials.stAddr1 = "123 Senate Ave";
+          scope.vm.credentials.city = "Fairfax";
+          scope.vm.credentials.state = "Virginia";
+          scope.vm.credentials.zipCode = "Virginia";
+          scope.vm.credentials.state = "Virginia";
+          scope.vm.credentials.username = "freddy";
+          scope.vm.credentials.password = "Pa$$w0rd!";
+          scope.vm.credentials.email = "test@email.com";
+          scope.vm.credentials.phoneNum = "Virginia";
+          $httpBackend.when('POST', '/api/auth/signup').respond(200, 'freddy');
 
           scope.vm.signup(true);
           $httpBackend.flush();
 
           // test scope value
-          expect(scope.vm.authentication.user).toBe('Fred');
+          expect(scope.vm.authentication.user.username).toBe('freddy');
           expect(scope.vm.error).toEqual(null);
           expect($location.url()).toBe('/');
         });

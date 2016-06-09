@@ -86,7 +86,7 @@ var UserSchema = new Schema({
   casenumber: {
     type: String,
     trim: true,
-    default: null
+    default: '100'
   },
   caseworker: {
     type: Boolean
