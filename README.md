@@ -1,150 +1,83 @@
-ReachOut 
-======
-[CA CMAS RFI-Response]
+# reachout
 
-Link to live prototype: http:______________
+[![Build Status](https://travis-ci.org/InfosysPublicServices/reachout.svg?branch=master)](https://travis-ci.org/InfosysPublicServices/reachout)
+[![Code Climate](https://codeclimate.com/github/InfosysPublicServices/reachout/badges/gpa.svg)](https://codeclimate.com/github/InfosysPublicServices/reachout)
 
-Thousands of prescription and over-the-counter medications, each with the potential to cause side effects, are on the market today. An enormous amount of information and data from many disparate sources, both reliable and unreliable, are available for each of these drugs. Even the most informed healthcare provider or consumer is challenged to keep up with the data. Rxpectations is a responsive mobile and web application that enables patients and their caregivers to review the risks of FDA-approved drugs, view recalls, report adverse events and, ultimately, participate in more informed decisions about their healthcare and treatment.
+# CA HHS ADPQ Response
+Link to live prototype: [https://www.reachoutcalifornia.com](https://www.reachoutcalifornia.com)
 
-Rxpectations was developed during a hackathon to demonstrate our agile design and development capabilities, leveraging the U.S. Digital Services Playbook (https://playbook.cio.gov/), and our passion for building innovative, engaging and impactful digital experiences. A description of our process is below. 
+##Introduction 
 
-*Additional information on our approach and process can be found at https://github.com/rxpectations/18f/wiki/Artifacts. Numbers in-line below (e.g., [1]) refer to specific slides numbers in the deck in the artifacts.*
-
-*A video overview of our journey can be found at https://github.com/rxpectations/18f/blob/master/_artifacts/Rxpectations%20Build%20Video.mp4* 
-
-##**Agile Design and Development Approach**
-
-Planning for the hackathon started with understanding the challenge and assembling a team of digital strategists, designers, developers, data analysts, and subject matter specialists. First, the team established baseline operations based on our experience delivering successful digital products and services. The team defined roles and responsibilities (e.g., Product Manager sets the product vision and business priorities and advocates on behalf of the customer) [16]; agreed on a common set of collaboration tools (i.e., Basecamp, GitHub, Google Hangouts, etc.); developed a project schedule; and cataloged the OpenFDA dataset. [9]
-
-###**Get Inspired!** [Ideation]
-
-On Day 1, the full team convened for kick-off—in-person at our Digital Services team location in Florida and remotely from Chicago and Washington D.C. – to conduct ideation and discovery. The team cast a wide net to uncover new and existing problems in the challenge domain—ideas at this stage were unconstrained, fed by industry knowledge, personal experiences, news events and other sources. Ideas were then synthesized, matched back to the available data, and pared down to the Top 3 opportunities to explore. Finally, the Top 3 were evaluated by potential value to end users and voted on by the team to select a top idea to conceptualize and explore more deeply. Our hypothesis was that consumers want an easily accessible, user friendly, and reliable way to access information about the medicines they take or are considering taking, the side effects of those medications, and any reported adverse events in order to engage with their healthcare providers and to make more informed decisions about their treatment. [8-12]
-
-###**Start with People** [Discovery]
-
-During discovery, the strategy team worked closely with end users to elicit the “Voice of the Customer” using human-centered design techniques, including interviews and empathy building exercises. The team mapped a typical patient’s journey—from pre-diagnosis through relapse—when experiencing a condition requiring medication. We defined personas for each patient segment (e.g., a patient selecting a treatment plan) to uncover common behaviors, hidden motivations and influences, pain points and bright spots, which were then mapped back to the customer journey. [13-19]
-
-###**Solve for the Core Need** [Discovery continued]
-
-With a deeper understanding of the customer’s needs and wants, the team focused on two of the most problematic areas of the customer journey: diagnosis and treatment. Here, users expressed anger, confusion, fear, uncertainty and other emotions around the medicines they were taking or planned to take. Many asked, “Is there an easier way for me to understand the risks?”
-
-The team captured these concerns and developed potential solutions using user stories (e.g., as a transplant candidate, I want to know the potential side effects of my medicine so I can discuss further with my doctor). The design team began to build a feature set from the user stories using whiteboard mockups which were quickly translated to digital wireframes. [22] The team then conducted hallway usability tests to further validate the concept and iterate on the rough information design. [27]
-
-At the same time that the business strategy was being defined, the development team worked to identify a technology stack to support a speedy, lightweight, yet powerful user experience without limiting device choice and application scalability. A modern, open and standards-compliant architecture was selected consisting of Kraken.js and Stylus with Jeet grid and Nib mix-ins. [25] The team also proposed a ”mobile-first” design and development approach using a responsive grid to facilitate broader adoption and device compatibility and to ease complexity when developing for desktop clients. [28] Building the backend began almost immediately with the development team creating the necessary models and the DevOps team configuring the hosting environment (Heroku), continuous integration services (Jenkins) and the distributed version control system (git). [25]
- 
-At the end of Day 1, the team reconvened to discuss the prioritization of the user stories with the Product Manager and to build the product backlog based on the day’s learnings. The team worked with the Delivery Manager to organize and prioritize the backlog into a release plan for the first sprint. [22]
-
-###**Don’t Stop Iterating** [Sprint]
-
-On Day 2 and all subsequent days, we sprinted to continually deliver working product increments. The team agreed to a cadence of sprint planning first thing in the morning; sprinting till noon; and a scrum with the Product Manager to answer any open questions on sprint tasks and to identify any blockers the Delivery Manager needed to help address. At the end of each day, we conducted backlog grooming, sprint review, and retrospectives with team and Product Manager.
-
-Throughout each sprint, the team conducted usability tests—A/B, Think Out Loud, Man-on-the-Street and Remote—to challenge our assumptions, iterate on the design and content, and validate the original value proposition. [27, 31-32] Feedback from these testing sessions was shared among the team during scrum and through our proofing tool (i.e., ProofHQ). The team made adjustments to planning and priorities based on the testing results.
-
-As the design evolved, so did the codebase. The development team rapidly added new code to support functionality (e.g., when UI changes required new service discovery, intake and wiring) while continuing to iterate on and mature existing code. During each sprint the code was subject to three levels of testing rigor—unit tests, expert reviews and peer reviews—with defects corrected at the time of discovery. [34]
-
-Additionally, application monitoring (i.e., New Relic) and baseline analytics (i.e., Google) were closely tracked to avoid performance degradations. As the team neared the end of development, additional tests were conducted on our “wall of devices” [33] to analyze compatibility across multiple devices and browsers (Chrome, Firefox, Internet Explorer and Safari at least two major versions back) as well as to test compliance with Section 508 accessibility standards.
-
-##**Conclusion**
-
-Our approach to building digital services combines the best of a creative agency model with a global strategy-to-execution consultancy that puts the customer at the core of all our digital products and services. For this effort, as with all our digital products, we not only brought in resources with digital and technical expertise, but also colleagues that are specialists in the subject industries – in this case the medical, pharmaceutical, healthcare provider and public health fields. We had so much fun building Rxpectations and we encourage you to download, edit, remix, and build upon [35] the application so that patients, healthcare practitioners, caregivers and others are empowered to make better healthcare decisions.
+reachout was developed during a hackathon to demonstrate our agile design and development capabilities.
+You have asked to demonstrate a number of approaches in our response, as follows:
 
 
-##**Getting Started with the Project**
+A description of our process can be accessed at: <<<"Update PPT Link"">>
+Letters in-line below (e.g. [a]) refer to our response to the above items. Numbers in-line below (e.g., [1]) refer to specific slides within this deck which provide additional proof points regarding our approach.
 
-Built using [kraken.js](http://krakenjs.com/)
+##Agile Design and Development Approach
 
-This project requires that [NodeJS](http://nodejs.org) is installed on your machine 
+### Planning
+Project planning began with assigning a Product Manager with responsibility for the direction and quality of the completed product [a][7]. We then assembled an eight person interdisciplinary core project team who would take the majority of the work, with an extended four person project team on call for specific tasks [b][7,8]. Our Product Manager, Delivery Manager and Technical Architect referenced the Infosys agile method [6] and collaborated during this Planning phase to:
+•	Analyze data available through the CA HHS API
+•	Define high level product vision and priorities
+•	Identify an agile management tool (Taiga)
+In parallel, we conducted background user research to better understand the context of child welfare in California and the players involved [c] [27,28,29,30]. This research formed the basis of our two user personas: Emily (a parent) and Anna (a caseworker) [c] [9].
+We developed a high level brand and feature vision and tested it with a random selection of anonymous, non-child welfare engaged internet users [c] [10,31,32,33,34].
+###Design – Ideation, Discovery and Product Design
+Our team convened in Rockville and remotely in Austin to kick-off the project and work through the Design phase – starting with Ideation.
+Throughout, we employed Infosys Design Thinking concepts to round out our agile method [5]. This inspired the use of ten user centric design techniques [d].
+##### Ideation
+Our team reviewed the challenge, the user research and the user personas to formulate initial ideas for product features. We used role play to empathize with the motivations of Emily and Anna and better understand their needs at different times.
+Our interdisciplinary team contained some child welfare experience, some public sector experience and some commercial experience. Our team contained many parents. Our thoughts were therefore not limited to a public sector lens; but did draw upon parents’ ideas of what would be important to them if their child were removed.
+These sessions generated detailed user journeys for Emily and Anna with the overarching goal of shortening the duration of Emily’s son Michael’s time in care and helping to ensure family stability once Michael returned home [c,d] [11,12,13,14].
+##### Discovery
+We validated and evolved our user journeys and goal statement with a group of individuals outside of the project team, including parents and a former social worker. These discussions allowed us to generate our product feature set [c,d] [10,11,12,13,14,15]:
 
-This project also makes use of the following technologies
-* Grunt
-* CSS Preprocessor: [Stylus](http://learnboost.github.io/stylus/)
-* Server side templating: [DustJS](http://www.dustjs.com/)
-* JS Module Management: [Browserify](http://browserify.org/)
+* Keeping Emily engaged with decision making regarding Michael
+	* 	Searching for foster care facilities
+	* 	Searching for schools close to the foster care facilities
+* A chat feature allowing:
+	* 	Emily to reach out to Anna for advice and encouragement in between visits
+	* 	Anna to reach out to Emily to check up on progress against her action items
+	* 	Anna to make use of her downtime during the day
 
-## Build Process
+##### Product Design
+We translated our product feature set into user stories, product flow, white board wireframes and detailed features [15,16,17] and tested them with our extended team and user representatives in two rounds: at the white board stage and once formal wireframes were generated, incorporating feedback at each iteration [c,d,f,g].
 
-### Install Node Dependencies
+Wireframe designs can be found at: wireframe link
 
-This command will download all dependencies or any missing dependencies that have been added in **package.json**
-```
-npm install
-```
 
-### Run The Application
+In parallel with our product design work, the Technical Architect defined the technology architecture to comply with your requirement for a modern and open stack [i,o,q] [18,19].
+This selection process also included the definition of the product style guide. Rather than start anew, we employed the US Patent and Trademark Office UI design library. This open source library includes a style guide and was constructed for use in public sector applications.
 
-#### Development
+The US PTO UI design library can be found here: [US PTO UI Design guide](https://uspto.github.io/designpatterns/index.html) [e] [20].
 
-Once Node is installed and dependencies are downloaded, run the following command
-```
-npm start
-```
+As the Design phase closed out, our Product Manager, Delivery Manager and Technical Architect worked on the sprint planning process. We select a two sprint approach and built backlogs accordingly using the Taiga tool to manage the sprints themselves [g] [21].
 
-Alternately, you can run the process with **nodemon** to continously watch for file changes and automatically restart the server
-```
-npm install nodemon -g
-nodemon server.js
-```
 
-#### Production
+Taiga project management proof points can be found here:[Tiaga](https://tree.taiga.io/project/smutalik-cmas/)
 
-The follow commands can be used to start this application in production mode:
+##### Agile Delivery
+For this phase of the project we planned for two sprints. Each day was organized as follows:
 
-```
-NODE_ENV=production npm start 
-```
 
-To view the site locally, navigate to [http://localhost:8000](http://localhost:8000)
+* Sprint all day
+* Scrum meeting with Product Manager at 5pm
+* Following the scrum meeting, the Delivery Manager and Technical Architect followed up on issues and reviewed backlog
 
-### Browserify with Kraken
 
-#### Development
-See [kraken-devtools-browseriy](http://github.com/iantocristian/kraken-devtools-browserify) for more information of configuring the use of browserify in development
+A retrospective was conducted at the end of each sprint with all of the core team.
+Multiple rounds of usability tests were conducted – with the core team, the extended team and with our user group. The primary methods were ‘Think Out Loud’, ‘Remote’ with screen sharing and user surveys. Feedback from these testing events was shared with the team during scrum meetings. More tangible concerns were documented in Taiga [c,f,g] [24,26,35,36,37].
+Responsiveness testing was conducted by our core team, then exposed to the user representatives for multiple devices and browsers [h][25]. At this stage we also verified 508 compliance.
 
-### Stylus Libraries
+As new changed code was checked into GitHub, Travis CI choreographed continuous integration with automated unit testing and deployment to AWS within a Docker container [j,k.l,m,o] [18,22].
+Proof points for continuous integration can be found here: CI links
+New Relic was used to perform continuous monitoring [n] [23]. We used Google Analytics for user tracking and to conducted A/B testing on reachout UI deployed components [n] [24].
+Proof points for monitoring can be found here: Monitoring links
+####Installation Instructions
+Complete installation instructions for reachout can be found here [p]: Insert installation instructions link
+####Conclusion
+The Infosys agile method, combined with Design Thinking allowed us to quickly design build and deploy product that we believe can be genuinely valuable to Emily and Anna. 
 
-#### Development
-To make use of any stylus libraries such as [nib](http://tj.github.io/nib/) or [jeet](http://jeet.gs/) in development, require them in `lib/stylus.js` and add them to the `use` array.
-```
-var config = {
-    filename: args.context.filePath,
-    paths: args.paths,
-    use: [nib(), jeet()]
-};
-```
 
-#### Production
-To make use of any stylus libraries in production, add them to the `use` array in the stylus grunt tasks.  Please note that some libraries may require you to tell Grunt the path to the specific module. 
-```
-build: {
-    options: {
-        compress: true
-    },
-    use: [
-      require('jeet'),
-      require('nib')
-    ],
-    paths: [
-      './node_modules/jeet/stylus'
-    ]
-    files: [{
-        expand: true,
-        cwd: 'public/css',
-        src: ['**/*.styl'],
-        dest: '.build/css/',
-        ext: '.css'
-    }]
-}
-```
-
-## Initial Setup
-
-To dockerize the application install <a href="https://docs.docker.com/engine/installation/" target="_blank">Docker</a> and <a href="https://docs.docker.com/compose/install/" target="_blank">Docker Compose</a>
-
-Once the services are setup go to the directory path and run these commands-
-
- ```
- $ docker-compose build 
- $ docker-compose up
- ```
- 
- Once the setup is complete you will be able to access the application on <a href="https://localhost:3000" target="_blank">localhost:3000</a>
