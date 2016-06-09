@@ -76,7 +76,8 @@ Proof points for continuous integration can be found here: CI links
 New Relic was used to perform continuous monitoring [n] [23]. We used Google Analytics for user tracking and to conducted A/B testing on reachout UI deployed components [n] [24].
 Proof points for monitoring can be found here: Monitoring links
 ####Installation Instructions
-Complete installation instructions for reachout can be found here [p]: Insert installation instructions link
+Complete installation instructions for reachout can be found here: [https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/Reachout_Installation_Instructions.pdf](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/Reachout_Installation_Instructions.pdf)
+
 ####Conclusion
 The Infosys agile method, combined with Design Thinking allowed us to quickly design build and deploy product that we believe can be genuinely valuable to Emily and Anna. 
 
