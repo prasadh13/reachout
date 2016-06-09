@@ -163,7 +163,7 @@
         }));
 
         it('Should have the correct URL', function () {
-          expect(signupstate.url).toEqual('/signup');
+          expect(signupstate.url).toEqual('/profile/create');
         });
 
         it('Should not be abstract', function () {

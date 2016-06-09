@@ -55,7 +55,6 @@ exports.update = function (req, res) {
  */
 exports.changeProfilePicture = function (req, res) {
   var user = req.user;
-  console.log(user);
   var upload = multer(config.uploads.profileUpload).single('newProfilePicture');
   var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
 
@@ -106,7 +105,6 @@ exports.me = function (req, res) {
  * List of Users
  */
 exports.list = function (req, res) {
-  console.log(typeof req.query.casenumber);
   if (req.user.caseworker) {
     User.find({ $and: [{ casenumber: req.query.casenumber }, { caseworker: false }] }).select('profileImageURL username created casenumber caseworker lastActivity').sort('-created').exec(function (err, users) {
       if (err) {
@@ -114,7 +112,6 @@ exports.list = function (req, res) {
           message: errorHandler.getErrorMessage(err)
         });
       } else {
-        console.log(users);
         res.json(users);
       }
     });
