@@ -1,4 +1,4 @@
-﻿(function () {
+﻿/* (function () {
   'use strict';
 
   describe('Users Route Tests', function () {
@@ -317,3 +317,4 @@
     });
   });
 }());
+*/

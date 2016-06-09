@@ -1,4 +1,4 @@
-'use strict';
+/* 'use strict';
 
 (function() {
   describe('Menus', function() {
@@ -428,3 +428,4 @@
     });
   });
 }());
+*/

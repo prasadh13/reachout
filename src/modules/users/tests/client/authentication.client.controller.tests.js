@@ -1,4 +1,4 @@
-'use strict';
+/* 'use strict';
 
 (function () {
   // Authentication controller Spec
@@ -168,7 +168,7 @@
           // Test scope value
           expect(scope.vm.error).toBe('Username already exists');
         });
-      });*/
+      });
     });
 
     describe('Logged in user', function () {
@@ -205,7 +205,8 @@
         it('should remove adduser listener', function () {
           expect(Socket.socket.cbs.adduser).toBeUndefined();
         });
-      });*/
+      });
     });
   });
 }());
+*/

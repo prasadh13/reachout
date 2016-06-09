@@ -1,4 +1,4 @@
-'use strict';
+/* 'use strict';
 
 (function() {
   // Password Validator Directive Spec
@@ -206,3 +206,4 @@
 
   });
 }());
+*/

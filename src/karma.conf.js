@@ -81,12 +81,11 @@ module.exports = function (karmaConfig) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Firefox'],
+    browsers: ['PhantomJS'],
 
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
     browserDisconnectTimeout : 10000,
-    browserDisconnectTolerance : 1,
     browserNoActivityTimeout : 150000,
 
     // Continuous Integration mode
