@@ -68,7 +68,7 @@ module.exports = function (karmaConfig) {
 
     // Level of logging
     // Possible values: karmaConfig.LOG_DISABLE || karmaConfig.LOG_ERROR || karmaConfig.LOG_WARN || karmaConfig.LOG_INFO || karmaConfig.LOG_DEBUG
-    logLevel: karmaConfig.LOG_INFO,
+    logLevel: karmaConfig.LOG_DEBUG,
 
     // Enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
@@ -81,10 +81,13 @@ module.exports = function (karmaConfig) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['PhantomJS'],
+    browsers: ['Firefox'],
 
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
+    browserDisconnectTimeout : 10000,
+    browserDisconnectTolerance : 1,
+    browserNoActivityTimeout : 150000,
 
     // Continuous Integration mode
     // If true, it capture browsers, run tests and exit
