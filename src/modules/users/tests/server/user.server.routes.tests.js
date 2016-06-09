@@ -47,8 +47,8 @@ describe('User CRUD tests', function () {
       password: credentials.password,
       provider: 'local',
       stAddr1: '111 Test St',
-      City: 'Testville',
-      State: 'Testas',
+      city: 'Testville',
+      state: 'Testas',
       zipCode: '12345'
     };
 
