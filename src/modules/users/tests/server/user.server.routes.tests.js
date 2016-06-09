@@ -49,7 +49,8 @@ describe('User CRUD tests', function () {
       stAddr1: '111 Test St',
       city: 'Testville',
       state: 'Testas',
-      zipCode: '12345'
+      zipCode: '12345',
+      lastActivity: new Date()
     };
 
     user = new User(_user);
