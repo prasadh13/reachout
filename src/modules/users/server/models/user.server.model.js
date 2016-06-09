@@ -116,7 +116,6 @@ var UserSchema = new Schema({
   },
   password: {
     type: String,
-    minlength: 10,
     default: ''
   },
   salt: {

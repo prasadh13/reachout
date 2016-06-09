@@ -79,13 +79,10 @@ exports.signin = function (req, res, next) {
  * Signout
  */
 exports.signout = function (req, res) {
-  console.log("logging out");
   var user = new User(req.user);
   user.lastActivity = new Date();
-  console.log(user);
   user.save(function(err) {
     if (err) {
-      console.log(err);
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
