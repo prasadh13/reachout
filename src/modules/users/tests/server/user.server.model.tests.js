@@ -27,7 +27,11 @@ describe('User Model Unit Tests:', function () {
       email: 'test@test.com',
       username: 'username',
       password: 'M3@n.jsI$Aw3$0m3',
-      provider: 'local'
+      provider: 'local',
+      stAddr1: '123 State Ave',
+      city: 'Fairfax',
+      state: 'Virginia',
+      zipCode: '22030'
     };
     // user2 is a clone of user1
     user2 = user1;
@@ -38,7 +42,11 @@ describe('User Model Unit Tests:', function () {
       email: 'test3@test.com',
       username: 'different_username',
       password: 'Different_Password1!',
-      provider: 'local'
+      provider: 'local',
+      stAddr1: '111 Valarie St',
+      city: 'Berkeley',
+      state: 'California',
+      zipCode: '20148'
     };
   });
 
