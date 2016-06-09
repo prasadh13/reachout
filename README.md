@@ -1,7 +1,7 @@
 # reachout
 
 [![Build Status](https://travis-ci.org/InfosysPublicServices/reachout.svg?branch=master)](https://travis-ci.org/InfosysPublicServices/reachout)
-[![Code Climate](https://codeclimate.com/github/InfosysPublicServices/reachout/badges/gpa.svg)](https://codeclimate.com/github/InfosysPublicServices/reachout)
+<!--[![Code Climate](https://codeclimate.com/github/InfosysPublicServices/reachout/badges/gpa.svg)](https://codeclimate.com/github/InfosysPublicServices/reachout)-->
 
 # CA HHS ADPQ Response
 Link to live prototype: [https://www.reachoutcalifornia.com](https://www.reachoutcalifornia.com)
@@ -45,7 +45,7 @@ We validated and evolved our user journeys and goal statement with a group of in
 ##### Product Design
 We translated our product feature set into user stories, product flow, white board wireframes and detailed features [15,16,17] and tested them with our extended team and user representatives in two rounds: at the white board stage and once formal wireframes were generated, incorporating feedback at each iteration [c,d,f,g].
 
-Wireframe designs can be found at: wireframe link
+Wireframe designs can be found at: [Wireframes](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/wireframes%201-2.pdf)
 
 
 In parallel with our product design work, the Technical Architect defined the technology architecture to comply with your requirement for a modern and open stack [i,o,q] [18,19].
@@ -56,7 +56,7 @@ The US PTO UI design library can be found here: [US PTO UI Design guide](https:/
 As the Design phase closed out, our Product Manager, Delivery Manager and Technical Architect worked on the sprint planning process. We select a two sprint approach and built backlogs accordingly using the Taiga tool to manage the sprints themselves [g] [21].
 
 
-Taiga project management proof points can be found here:[Tiaga](https://tree.taiga.io/project/smutalik-cmas/)
+Taiga agile project management proof points can be found here:[Tiaga](https://tree.taiga.io/project/smutalik-cmas/)
 
 ##### Agile Delivery
 For this phase of the project we planned for two sprints. Each day was organized as follows:
@@ -73,17 +73,24 @@ Responsiveness testing was conducted by our core team, then exposed to the user 
 
 As new changed code was checked into GitHub, Travis CI choreographed continuous integration with automated unit testing and deployment to AWS within a Docker container [j,k.l,m,o] [18,22].
 Proof points for continuous integration can be found here: CI links
-New Relic was used to perform continuous monitoring [n] [23]. We used Google Analytics for user tracking and to conducted A/B testing on reachout UI deployed components [n] [24].
+
+
+New Relic was used to perform continuous monitoring [n] [23]. 
+We used Google Analytics for user tracking and to conduct A/B testing on reachout UI deployed components [n] [24].
 
 Proof points for monitoring can be found here: 
 
-[Amazon Cloudwatch](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/AWS-CloudWatch_Metrics.pdf)
+[New Relic Metrics](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/newRelic_Metrics.pdf)
 
 [Google Analytics](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/googleAnalytics_WebAnalytics.pdf)
 
 [Google A/B Experiment](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/Google%20Analytics%20A-B%20Testing.pdf)
 
-[New Relic Metrics](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/newRelic_Metrics.pdf)
+We used Amazon aws cloud watch to monitor the load balancers and EC2 instances.
+
+Proof point for AWS monitoring can be found here:
+
+[Amazon Cloudwatch](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/AWS-CloudWatch_Metrics.pdf)
 
 ####Installation Instructions
 Complete installation instructions for reachout can be found here: [https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/Reachout_Installation_Instructions.pdf](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/Reachout_Installation_Instructions.pdf)
