@@ -95,13 +95,13 @@ var UserSchema = new Schema({
     type: String,
     trim: true,
     default: '',
-    validate: [validateLocalStrategyProperty, 'Please fill in a city`']
+    validate: [validateLocalStrategyProperty, 'Please fill in a city']
   },
   state: {
     type: String,
     trim: true,
     default: '',
-    validate: [validateLocalStrategyProperty, 'Please fill in a city`']
+    validate: [validateLocalStrategyProperty, 'Please fill in a state']
   },
   zipCode: {
     type: Number,

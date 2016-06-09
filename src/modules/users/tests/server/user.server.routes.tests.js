@@ -45,7 +45,11 @@ describe('User CRUD tests', function () {
       email: 'test@test.com',
       username: credentials.username,
       password: credentials.password,
-      provider: 'local'
+      provider: 'local',
+      stAddr1: '111 Test St',
+      City: 'Testville',
+      State: 'Testas',
+      zipCode: '12345'
     };
 
     user = new User(_user);
@@ -61,7 +65,6 @@ describe('User CRUD tests', function () {
 
     _user.username = 'register_new_user';
     _user.email = 'register_new_user_@test.com';
-
     agent.post('/api/auth/signup')
       .send(_user)
       .expect(200)
