@@ -37,6 +37,10 @@ describe('Configuration Tests:', function () {
           firstName: 'User',
           lastName: 'Local',
           displayName: 'User Local',
+          stAddr1: '123 State Ave',
+          city: 'Fairfax',
+          state: 'Virginia',
+          zipCode: '22030',
           roles: ['user']
         };
 
@@ -47,6 +51,10 @@ describe('Configuration Tests:', function () {
           firstName: 'Admin',
           lastName: 'Local',
           displayName: 'Admin Local',
+          stAddr1: '111 Valarie St',
+          city: 'Berkeley',
+          state: 'California',
+          zipCode: '20148',
           roles: ['user', 'admin']
         };
 
