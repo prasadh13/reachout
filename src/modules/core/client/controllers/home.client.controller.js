@@ -1,4 +1,4 @@
-/* eslint no-undef: 0 */
+  /* eslint no-undef: 0 */
 /* eslint eqeqeq: 0 */
 (function () {
   'use strict';
@@ -24,7 +24,7 @@
       $scope.map.showInfoWindow('facilitiesInfo', place.facility_number);
     };
     if (vm.authentication.user) {
-       document.body.style.background = "#fff";
+      document.body.style.background = "#fff";
     }
     function getSchools() {
       var request = {

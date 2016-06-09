@@ -39,7 +39,7 @@
     });
 
     describe('when user logged in', function () {
-      beforeEach(inject(function ($controller, $rootScope, _Socket_, _Authentication_, _$timeout_, _$state_) {
+      beforeEach(inject(function ($controller, $rootScope, _Authentication_, _$timeout_, _$state_) {
         Authentication.user = {
           name: 'user',
           roles: ['user']
@@ -50,16 +50,13 @@
         });
       }));
 
-      it('should make sure socket is connected', function () {
-        expect(Socket.socket).toBeTruthy();
-      });
 
       it('should define messages array', function () {
         expect($scope.vm.messages).toBeDefined();
         expect($scope.vm.messages.length).toBe(0);
       });
 
-      describe('sendMessage', function () {
+      /* describe('sendMessage', function () {
         var text = 'hello world!';
         beforeEach(function () {
           $scope.vm.messageText = text;
@@ -78,9 +75,9 @@
         it('should clear messageText', function () {
           expect($scope.vm.messageText).toBe('');
         });
-      });
+      });*/
 
-      describe('$destroy()', function () {
+      /* describe('$destroy()', function () {
         beforeEach(function () {
           $scope.$destroy();
         });
@@ -88,7 +85,7 @@
         it('should remove chatMessage listener', function () {
           expect(Socket.socket.cbs.chatMessage).toBeUndefined();
         });
-      });
+      });*/
     });
   });
 }());
