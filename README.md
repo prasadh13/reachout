@@ -1,7 +1,7 @@
 # reachout
 
 [![Build Status](https://travis-ci.org/InfosysPublicServices/reachout.svg?branch=master)](https://travis-ci.org/InfosysPublicServices/reachout)
-[![Code Climate](https://codeclimate.com/github/InfosysPublicServices/reachout/badges/gpa.svg)](https://codeclimate.com/github/InfosysPublicServices/reachout)
+<!--[![Code Climate](https://codeclimate.com/github/InfosysPublicServices/reachout/badges/gpa.svg)](https://codeclimate.com/github/InfosysPublicServices/reachout)-->
 
 # CA HHS ADPQ Response
 Link to live prototype: [https://www.reachoutcalifornia.com](https://www.reachoutcalifornia.com)
