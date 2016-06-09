@@ -80,6 +80,11 @@ module.exports = {
         firstName: 'User',
         lastName: 'Local',
         displayName: 'User Local',
+        stAddr1: '123 State Ave',
+        city: 'Fairfax',
+        state: 'Virginia',
+        zipCode: '22030',
+        password: 'M3@n.jsI$Aw3$0m3',
         roles: ['user']
       },
       seedAdmin: {
@@ -89,6 +94,11 @@ module.exports = {
         firstName: 'Admin',
         lastName: 'Local',
         displayName: 'Admin Local',
+        stAddr1: '111 Valarie St',
+        city: 'Berkeley',
+        state: 'California',
+        zipCode: '20148',
+        password: 'Different_Password1!',
         roles: ['user', 'admin']
       }
     }
