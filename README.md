@@ -74,7 +74,12 @@ Responsiveness testing was conducted by our core team, then exposed to the user 
 As new changed code was checked into GitHub, Travis CI choreographed continuous integration with automated unit testing and deployment to AWS within a Docker container [j,k.l,m,o] [18,22].
 Proof points for continuous integration can be found here: CI links
 New Relic was used to perform continuous monitoring [n] [23]. We used Google Analytics for user tracking and to conducted A/B testing on reachout UI deployed components [n] [24].
-Proof points for monitoring can be found here: Monitoring links
+Proof points for monitoring can be found here: 
+[Amazon Cloudwatch](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/AWS-CloudWatch_Metrics.pdf)
+[Google Analytics](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/googleAnalytics_WebAnalytics.pdf)
+[Google A/B Experiment](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/Google%20Analytics%20A-B%20Testing.pdf)
+[New Relic Metrics](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/newRelic_Metrics.pdf)
+
 ####Installation Instructions
 Complete installation instructions for reachout can be found here: [https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/Reachout_Installation_Instructions.pdf](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/Reachout_Installation_Instructions.pdf)
 
