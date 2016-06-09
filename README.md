@@ -12,7 +12,7 @@ reachout was developed during a hackathon to demonstrate our agile design and de
 You have asked to demonstrate a number of approaches in our response, as follows:
 
 
-A description of our process can be accessed at: <<<"Update PPT Link"">>
+A description of our process can be accessed at: [Process Deck](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/Process%20Deck.pdf)
 Letters in-line below (e.g. [a]) refer to our response to the above items. Numbers in-line below (e.g., [1]) refer to specific slides within this deck which provide additional proof points regarding our approach.
 
 ##Agile Design and Development Approach
