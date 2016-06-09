@@ -45,7 +45,7 @@ We validated and evolved our user journeys and goal statement with a group of in
 ##### Product Design
 We translated our product feature set into user stories, product flow, white board wireframes and detailed features [15,16,17] and tested them with our extended team and user representatives in two rounds: at the white board stage and once formal wireframes were generated, incorporating feedback at each iteration [c,d,f,g].
 
-Wireframe designs can be found at: wireframe link
+Wireframe designs can be found at: [Wireframes](https://github.com/InfosysPublicServices/reachout/blob/master/artifacts/wireframes%201-2.pdf)
 
 
 In parallel with our product design work, the Technical Architect defined the technology architecture to comply with your requirement for a modern and open stack [i,o,q] [18,19].
@@ -56,7 +56,7 @@ The US PTO UI design library can be found here: [US PTO UI Design guide](https:/
 As the Design phase closed out, our Product Manager, Delivery Manager and Technical Architect worked on the sprint planning process. We select a two sprint approach and built backlogs accordingly using the Taiga tool to manage the sprints themselves [g] [21].
 
 
-Taiga project management proof points can be found here:[Tiaga](https://tree.taiga.io/project/smutalik-cmas/)
+Taiga agile project management proof points can be found here:[Tiaga](https://tree.taiga.io/project/smutalik-cmas/)
 
 ##### Agile Delivery
 For this phase of the project we planned for two sprints. Each day was organized as follows:
